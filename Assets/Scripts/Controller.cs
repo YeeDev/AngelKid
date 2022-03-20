@@ -1,4 +1,6 @@
 using UnityEngine;
+using AK.Movements;
+using AK.MovementStates;
 
 namespace AK.Controls
 {
@@ -32,7 +34,7 @@ namespace AK.Controls
             float xAxis = Input.GetAxisRaw("Horizontal");
             if (climber.GetIsClimbing && Mathf.Abs(xAxis) > Mathf.Epsilon) { PreventClimb(); }
 
-            mover.Move(xAxis, Input.GetAxisRaw("Vertical"), col.IsTouchingLayers(climbableMask));
+            mover.Move(xAxis, Input.GetAxisRaw("Vertical"));
         }
 
         private void ReadJumpInput()
@@ -47,6 +49,12 @@ namespace AK.Controls
 
         private void ReadClimbInput()
         {
+            StartClimb();
+            StopClimb();
+        }
+
+        private void StartClimb()
+        {
             if (Input.GetButton("Vertical"))
             {
                 if (climber.CheckIfStartClimb(col.IsTouchingLayers(climbableMask), Input.GetAxisRaw("Vertical")))
@@ -55,11 +63,14 @@ namespace AK.Controls
                     mover.StopRigidbody();
                 }
             }
+        }
 
+        private void StopClimb()
+        {
             if (climber.GetIsClimbing)
             {
-                if (climber.CheckIfStopClimbing(col.IsTouchingLayers(LayerMask.GetMask("Ground")),
-                    Input.GetAxisRaw("Vertical") < 0, col.bounds.min.y))
+                bool touchingGround = col.IsTouchingLayers(LayerMask.GetMask("Ground"));
+                if (climber.CheckIfStopClimbing(touchingGround, Input.GetAxisRaw("Vertical") < 0, col.bounds.min.y))
                 {
                     PreventClimb();
                 }
