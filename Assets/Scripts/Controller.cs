@@ -17,9 +17,11 @@ namespace AK.Controls
 
         private void Awake()
         {
-            mover = GetComponent<Mover>();
-            climber = GetComponent<Climber>();
             col = GetComponent<Collider2D>();
+            mover = GetComponent<Mover>();
+
+            climber = GetComponent<Climber>();
+            climber.SetMove(mover);
         }
 
         private void Update()
@@ -32,16 +34,16 @@ namespace AK.Controls
         private void ReadWalkInput()
         {
             float xAxis = Input.GetAxisRaw("Horizontal");
-            if (climber.GetIsClimbing && Mathf.Abs(xAxis) > Mathf.Epsilon) { PreventClimb(); }
+            if (climber.GetIsClimbing && Mathf.Abs(xAxis) > Mathf.Epsilon) { climber.StopClimbing(); }
 
-            mover.Move(xAxis, Input.GetAxisRaw("Vertical"));
+            mover.Move(xAxis, Input.GetAxisRaw("Vertical"), climber.GetIsClimbing);
         }
 
         private void ReadJumpInput()
         {
             if (Input.GetButtonDown("Jump") && col.IsTouchingLayers(jumpableMask))
             {
-                PreventClimb();
+                climber.StopClimbing();
                 mover.Jump();
             }
             if (Input.GetButtonUp("Jump")) { mover.HaltJump(); }
@@ -57,11 +59,7 @@ namespace AK.Controls
         {
             if (Input.GetButton("Vertical"))
             {
-                if (climber.CheckIfStartClimb(col.IsTouchingLayers(climbableMask), Input.GetAxisRaw("Vertical")))
-                {
-                    mover.SetGravity(false, 0);
-                    mover.StopRigidbody();
-                }
+                climber.CheckIfStartClimb(col.IsTouchingLayers(climbableMask), Input.GetAxisRaw("Vertical"));
             }
         }
 
@@ -70,17 +68,8 @@ namespace AK.Controls
             if (climber.GetIsClimbing)
             {
                 bool touchingGround = col.IsTouchingLayers(LayerMask.GetMask("Ground"));
-                if (climber.CheckIfStopClimbing(touchingGround, Input.GetAxisRaw("Vertical") < 0, col.bounds.min.y))
-                {
-                    PreventClimb();
-                }
+                climber.CheckIfStopClimbing(touchingGround, Input.GetAxisRaw("Vertical") < 0, col.bounds.min.y);
             }
-        }
-
-        private void PreventClimb()
-        {
-            mover.SetGravity(true);
-            climber.StopClimbing();
         }
     }
 }

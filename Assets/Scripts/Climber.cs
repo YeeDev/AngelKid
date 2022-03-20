@@ -1,4 +1,5 @@
 using UnityEngine;
+using AK.Movements;
 
 namespace AK.MovementStates
 {
@@ -9,46 +10,47 @@ namespace AK.MovementStates
         [SerializeField] LayerMask climbableMask = 0;
 
         bool isClimbing;
+        Mover mover;
         Collider2D ladder;
         EdgeCollider2D topOfLadder;
 
+        
         public bool GetIsClimbing { get => isClimbing; }
         public float ClimbSpeed { get => climbSpeed; }
+        public void SetMove(Mover mover) { this.mover = mover; }
 
-        public bool CheckIfStartClimb(bool touchingLadder, float yAxis)
+        public void CheckIfStartClimb(bool touchingLadder, float yAxis)
         {
-            if (touchingLadder && Mathf.Abs(yAxis) > 0 && !isClimbing) { return StartClimbing(yAxis); }
-            return false;
+            if (touchingLadder && Mathf.Abs(yAxis) > 0 && !isClimbing) { StartClimbing(yAxis); }
         }
 
-        public bool StartClimbing(float yAxis)
+        public void StartClimbing(float yAxis)
         {
             ladder = Physics2D.OverlapCircle(transform.position, 1, climbableMask);
             topOfLadder = ladder.transform.GetComponentInChildren<EdgeCollider2D>();
 
-            if (topOfLadder.IsTouchingLayers(LayerMask.GetMask("Player")) && yAxis > 0) { return false; }
+            if (topOfLadder.IsTouchingLayers(LayerMask.GetMask("Player")) && yAxis > 0) { return; }
 
             isClimbing = true;
             topOfLadder.enabled = false;
             transform.position = new Vector2(ladder.transform.position.x, transform.position.y);
 
-            return true;
+            mover.SetGravity(false, 0);
+            mover.StopRigidbody();
         }
 
-        public bool CheckIfStopClimbing(bool touchingGround, bool goingDown, float bottomPlayerCollider)
+        public void CheckIfStopClimbing(bool touchingGround, bool goingDown, float bottomPlayerCollider)
         {
             if ((touchingGround && goingDown) || (ladder.bounds.max.y + ladderTopOffset < bottomPlayerCollider))
             {
                 StopClimbing();
-                return true;
             }
-
-            return false;
         }
 
         public void StopClimbing()
         {
             isClimbing = false;
+            mover.SetGravity(true);
             if (topOfLadder != null) { topOfLadder.enabled = true; }
         }
     }
