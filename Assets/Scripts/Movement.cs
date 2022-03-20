@@ -7,13 +7,17 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float jumpForce = 15f;
+    [SerializeField] float climbSpeed = 2f;
     [SerializeField] LayerMask jumpableMask = 0;
     [SerializeField] LayerMask climbableMask = 0;
+    [SerializeField] float ladderOffset = 0.5f;
 
     bool isClimbing;
     float initialGravity;
     Rigidbody2D rb;
     Collider2D col;
+    Collider2D ladder;
+    EdgeCollider2D ladderTop;
 
     private void Awake()
     {
@@ -29,6 +33,8 @@ public class Movement : MonoBehaviour
         Climb();
         Move();
         Jump();
+
+        Debug.Log(col.IsTouchingLayers(LayerMask.GetMask("Climbable")));
     }
 
     private void Climb()
@@ -36,7 +42,14 @@ public class Movement : MonoBehaviour
         if (!isClimbing) { return; }
 
         //TODO Use Animator Movement Instead (?)
-        rb.velocity = new Vector2(0, Input.GetAxisRaw("Vertical"));
+        rb.velocity = new Vector2(0, Input.GetAxisRaw("Vertical") * climbSpeed);
+
+        if (col.IsTouchingLayers(LayerMask.GetMask("Ground")) && Input.GetAxisRaw("Vertical") < 0)
+        {
+            ResetClimbSettings();
+        }
+
+        if (ladder.bounds.max.y + ladderOffset < col.bounds.min.y) { ResetClimbSettings(); }
     }
 
     private void StartClimb()
@@ -48,8 +61,10 @@ public class Movement : MonoBehaviour
                 isClimbing = true;
                 rb.gravityScale = 0;
                 rb.velocity = Vector2.zero;
-                Transform ladder = Physics2D.OverlapCircle(transform.position, 1, climbableMask).transform;
-                transform.position = new Vector2(ladder.position.x, transform.position.y);
+                ladder = Physics2D.OverlapCircle(transform.position, 1, climbableMask);
+                ladderTop = ladder.transform.GetComponentInChildren<EdgeCollider2D>();
+                ladderTop.enabled = false;
+                transform.position = new Vector2(ladder.transform.position.x, transform.position.y);
             }
         }
     }
@@ -81,5 +96,7 @@ public class Movement : MonoBehaviour
     {
         isClimbing = false;
         rb.gravityScale = initialGravity;
+        if(ladderTop != null)
+            ladderTop.enabled = true;
     }
 }
