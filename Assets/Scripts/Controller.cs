@@ -1,6 +1,6 @@
 using UnityEngine;
-using AK.Movements;
 using AK.MovementStates;
+using AK.Movements;
 
 namespace AK.Controls
 {
@@ -59,7 +59,7 @@ namespace AK.Controls
         {
             if (Input.GetButton("Vertical"))
             {
-                climber.CheckIfStartClimb(col.IsTouchingLayers(climbableMask), Input.GetAxisRaw("Vertical"));
+                climber.CheckIfStartClimb(col.IsTouchingLayers(climbableMask), Input.GetAxisRaw("Vertical"), climbableMask);
             }
         }
 

@@ -5,9 +5,7 @@ namespace AK.MovementStates
 {
     public class Climber : MonoBehaviour
     {
-        [SerializeField] float climbSpeed = 2f;
         [SerializeField] float ladderTopOffset = 0.2f;
-        [SerializeField] LayerMask climbableMask = 0;
 
         bool isClimbing;
         Mover mover;
@@ -15,15 +13,14 @@ namespace AK.MovementStates
         EdgeCollider2D topOfLadder;
         
         public bool GetIsClimbing { get => isClimbing; }
-        public float ClimbSpeed { get => climbSpeed; }
         public void SetMove(Mover mover) { this.mover = mover; }
 
-        public void CheckIfStartClimb(bool touchingLadder, float yAxis)
+        public void CheckIfStartClimb(bool touchingLadder, float yAxis, LayerMask climbableMask)
         {
-            if (touchingLadder && Mathf.Abs(yAxis) > 0 && !isClimbing) { StartClimbing(yAxis); }
+            if (touchingLadder && Mathf.Abs(yAxis) > 0 && !isClimbing) { StartClimbing(yAxis, climbableMask); }
         }
 
-        public void StartClimbing(float yAxis)
+        public void StartClimbing(float yAxis, LayerMask climbableMask)
         {
             ladder = Physics2D.OverlapCircle(transform.position, 1, climbableMask);
             topOfLadder = ladder.transform.GetComponentInChildren<EdgeCollider2D>();
