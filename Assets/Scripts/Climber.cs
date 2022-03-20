@@ -23,7 +23,7 @@ namespace AK.MovementStates
         public void StartClimbing(float yAxis, LayerMask climbableMask)
         {
             ladder = Physics2D.OverlapCircle(transform.position, 1, climbableMask);
-            topOfLadder = ladder.transform.GetComponentInChildren<EdgeCollider2D>();
+            if (ladder != null) { topOfLadder = ladder.transform.GetComponentInChildren<EdgeCollider2D>(); }
 
             if (topOfLadder.IsTouchingLayers(LayerMask.GetMask("Player")) && yAxis > 0) { return; }
 

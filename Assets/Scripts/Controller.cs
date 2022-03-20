@@ -1,6 +1,7 @@
 using UnityEngine;
 using AK.MovementStates;
 using AK.Movements;
+using AK.Core;
 
 namespace AK.Controls
 {
@@ -14,11 +15,13 @@ namespace AK.Controls
         Mover mover;
         Climber climber;
         Collider2D col;
+        CameraViewer cameraViewer;
 
         private void Awake()
         {
             col = GetComponent<Collider2D>();
             mover = GetComponent<Mover>();
+            cameraViewer = Camera.main.GetComponent<CameraViewer>();
 
             climber = GetComponent<Climber>();
             climber.SetMove(mover);
@@ -29,6 +32,11 @@ namespace AK.Controls
             ReadWalkInput();
             ReadJumpInput();
             ControlClimbState();
+        }
+
+        private void FixedUpdate()
+        {
+            cameraViewer.IsPlayerGrounded = col.IsTouchingLayers(LayerMask.GetMask("Ground")) || climber.GetIsClimbing;
         }
 
         private void ReadWalkInput()
