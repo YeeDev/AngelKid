@@ -28,7 +28,7 @@ namespace AK.Controls
         {
             ReadWalkInput();
             ReadJumpInput();
-            ReadClimbInput();
+            ControlClimbState();
         }
 
         private void ReadWalkInput()
@@ -49,7 +49,7 @@ namespace AK.Controls
             if (Input.GetButtonUp("Jump")) { mover.HaltJump(); }
         }
 
-        private void ReadClimbInput()
+        private void ControlClimbState()
         {
             StartClimb();
             StopClimb();
