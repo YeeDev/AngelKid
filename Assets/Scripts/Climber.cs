@@ -13,7 +13,6 @@ namespace AK.MovementStates
         Mover mover;
         Collider2D ladder;
         EdgeCollider2D topOfLadder;
-
         
         public bool GetIsClimbing { get => isClimbing; }
         public float ClimbSpeed { get => climbSpeed; }
