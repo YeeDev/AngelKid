@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10;
 
+    bool facingLeft;
     Vector2 moveInput;
     Rigidbody2D rb2D;
 
@@ -19,6 +20,13 @@ public class Movement : MonoBehaviour
     void Update()
     {
         Run();
+        CheckIfSpriteShouldFlip();
+    }
+
+    private void CheckIfSpriteShouldFlip()
+    {
+        if (moveInput.x > 0 && facingLeft) { FlipSprite(); }
+        else if (moveInput.x < 0 && !facingLeft) { FlipSprite(); }
     }
 
     private void OnMove(InputValue value)
@@ -33,5 +41,14 @@ public class Movement : MonoBehaviour
         playerVelocity.y = rb2D.velocity.y;
 
         rb2D.velocity = playerVelocity;
+    }
+
+    private void FlipSprite()
+    {
+        facingLeft = !facingLeft;
+
+        Vector2 flippedScale = transform.localScale;
+        flippedScale.x *= -1;
+        transform.localScale = flippedScale;
     }
 }
