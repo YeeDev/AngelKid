@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missileSpeed: 18
+  timeBeforeDissapearing: 4
 --- !u!114 &-5852113824066231852
 MonoBehaviour:
   m_ObjectHideFlags: 0

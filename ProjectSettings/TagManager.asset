@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Damager
   - PlayerDamager
+  - Exit
   layers:
   - Default
   - TransparentFX

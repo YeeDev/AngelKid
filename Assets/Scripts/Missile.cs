@@ -28,11 +28,11 @@ public class Missile : MonoBehaviour
 
     private void Update() { rb.velocity = Vector2.right * direction * missileSpeed; }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player")) { return; }
+        if (collision.CompareTag("Player") || collision.CompareTag("Exit") || collision.CompareTag("Climbable")) { return; }
 
-        Destroy(gameObject);
+        Dissapear();
     }
 
     private void Dissapear() { Destroy(gameObject); }

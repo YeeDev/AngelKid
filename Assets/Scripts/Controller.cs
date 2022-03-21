@@ -52,6 +52,7 @@ namespace AK.Controls
             ReadJumpInput();
             ControlClimbState();
             ReadShootInput();
+            shooter.AddToTimer();
         }
 
         private void FixedUpdate()
