@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using AK.UnitsStats;
 using AK.Core;
@@ -29,7 +27,7 @@ namespace AK.Collisions
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag(damagerTag))
+            if (other.CompareTag(damagerTag) && !transform.CompareTag("Player"))
             {
                 //TODO Grab Damage from another class.
                 stats.ModifyHealth(-1);
