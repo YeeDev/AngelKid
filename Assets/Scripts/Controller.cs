@@ -2,11 +2,14 @@ using UnityEngine;
 using AK.MovementStates;
 using AK.Movements;
 using AK.Core;
+using AK.UnitsStats;
+using AK.Collisions;
 
 namespace AK.Controls
 {
     [RequireComponent(typeof(Mover))]
     [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(Collisioner))]
     public class Controller : MonoBehaviour
     {
         [SerializeField] Collider2D feetcol = null;
@@ -14,14 +17,20 @@ namespace AK.Controls
         [SerializeField] LayerMask climbableMask = 0; 
 
         float xAxis;
+        Stats stats;
         Mover mover;
         Climber climber;
+        Collisioner collisioner;
         CameraViewer cameraViewer;
 
         private void Awake()
         {
             mover = GetComponent<Mover>();
             cameraViewer = Camera.main.GetComponent<CameraViewer>();
+            stats = GetComponent<Stats>();
+
+            collisioner = GetComponent<Collisioner>();
+            collisioner.SetStats(stats);
 
             climber = GetComponent<Climber>();
             climber.SetMove(mover);
@@ -29,6 +38,12 @@ namespace AK.Controls
 
         private void Update()
         {
+            if (stats.IsUnitDeath)
+            {
+                mover.StopRigidbody();
+                return;
+            }
+
             ReadWalkInput();
             ReadJumpInput();
             ControlClimbState();
@@ -36,7 +51,7 @@ namespace AK.Controls
 
         private void FixedUpdate()
         {
-            cameraViewer.IsPlayerGrounded = feetcol.IsTouchingLayers(LayerMask.GetMask("Ground")) || climber.GetIsClimbing;
+            cameraViewer.IsPlayerGrounded = feetcol.IsTouchingLayers(LayerMask.GetMask("Jumpable")) || climber.GetIsClimbing;
         }
 
         private void ReadWalkInput()
