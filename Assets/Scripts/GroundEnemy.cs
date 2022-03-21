@@ -2,6 +2,7 @@ using UnityEngine;
 using AK.Movements;
 using AK.Collisions;
 using AK.UnitsStats;
+using AK.Animations;
 
 [RequireComponent(typeof(Mover))]
 [RequireComponent(typeof(Collisioner))]
@@ -22,8 +23,6 @@ public class GroundEnemy : MonoBehaviour
 
         collisioner = GetComponent<Collisioner>();
         collisioner.SetStats(stats);
-
-        if (movingDirection < 0) { Flip(true); }
     }
 
     private void Update()
@@ -44,15 +43,9 @@ public class GroundEnemy : MonoBehaviour
         mover.Move(movingDirection, 0, false);
     }
 
-    private void OnTriggerExit2D(Collider2D collision) { if (collision.CompareTag("Ground") && !ignoresFalls) { Flip(); } }
+    private void OnTriggerExit2D(Collider2D collision) { if (collision.CompareTag("Ground") && !ignoresFalls) { FlipMovingDirection(); } }
 
-    private void OnTriggerEnter2D(Collider2D collision) { if (collision.CompareTag("Wall")) { Flip(); } }
+    private void OnTriggerEnter2D(Collider2D collision) { if (collision.CompareTag("Wall")) { FlipMovingDirection(); } }
 
-    private void Flip(bool ignoreDirection = false)
-    {
-        movingDirection = ignoreDirection ? movingDirection : movingDirection * -1;
-        Vector3 flippedScale = transform.localScale;
-        flippedScale.x = movingDirection;
-        transform.localScale = flippedScale;
-    }
+    private void FlipMovingDirection() { movingDirection *= -1; }
 }

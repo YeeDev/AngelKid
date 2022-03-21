@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4894933314707899675}
   - component: {fileID: 4345606262335529629}
   - component: {fileID: 6457800246272394570}
+  - component: {fileID: -5852113824066231852}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: PlayerDamager
@@ -144,4 +145,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de74aeab083994e439e42a55d638919e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileSpeed: 5
+  missileSpeed: 18
+--- !u!114 &-5852113824066231852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835301565440022639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa134aedd1704022b52588e2489e20d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
