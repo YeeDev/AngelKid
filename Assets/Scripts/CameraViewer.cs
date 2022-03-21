@@ -17,7 +17,7 @@ namespace AK.Core
 
         private void Awake() { player = GameObject.FindGameObjectWithTag("Player").transform; }
 
-        private void LateUpdate() { transform.position = CalculateFollowPosition(); }
+        private void FixedUpdate() { transform.position = CalculateFollowPosition(); }
 
         private Vector3 CalculateFollowPosition()
         {
