@@ -5,8 +5,6 @@ namespace AK.MovementStates
 {
     public class Climber : MonoBehaviour
     {
-        [SerializeField] float ladderTopOffset = 0.2f;
-
         bool isClimbing;
         Mover mover;
         Collider2D ladder;
@@ -25,7 +23,7 @@ namespace AK.MovementStates
             ladder = Physics2D.OverlapCircle(transform.position, 1, climbableMask);
             if (ladder != null) { topOfLadder = ladder.transform.GetComponentInChildren<EdgeCollider2D>(); }
 
-            if (topOfLadder.IsTouchingLayers(LayerMask.GetMask("Player")) && yAxis > 0) { return; }
+            if (topOfLadder != null && topOfLadder.IsTouchingLayers(LayerMask.GetMask("Player")) && yAxis > 0) { return; }
 
             isClimbing = true;
             topOfLadder.enabled = false;
@@ -37,7 +35,7 @@ namespace AK.MovementStates
 
         public void CheckIfStopClimbing(bool touchingGround, bool goingDown, float bottomPlayerCollider)
         {
-            if ((touchingGround && goingDown) || (ladder.bounds.max.y + ladderTopOffset < bottomPlayerCollider))
+            if ((touchingGround && goingDown) || (ladder.bounds.max.y < bottomPlayerCollider))
             {
                 StopClimbing();
             }

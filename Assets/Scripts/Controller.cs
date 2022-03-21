@@ -9,18 +9,17 @@ namespace AK.Controls
     [RequireComponent(typeof(Collider2D))]
     public class Controller : MonoBehaviour
     {
+        [SerializeField] Collider2D feetcol = null;
         [SerializeField] LayerMask jumpableMask = 0;
-        [SerializeField] LayerMask climbableMask = 0;
+        [SerializeField] LayerMask climbableMask = 0; 
 
         float xAxis;
         Mover mover;
         Climber climber;
-        Collider2D col;
         CameraViewer cameraViewer;
 
         private void Awake()
         {
-            col = GetComponent<Collider2D>();
             mover = GetComponent<Mover>();
             cameraViewer = Camera.main.GetComponent<CameraViewer>();
 
@@ -37,7 +36,7 @@ namespace AK.Controls
 
         private void FixedUpdate()
         {
-            cameraViewer.IsPlayerGrounded = col.IsTouchingLayers(LayerMask.GetMask("Ground")) || climber.GetIsClimbing;
+            cameraViewer.IsPlayerGrounded = feetcol.IsTouchingLayers(LayerMask.GetMask("Ground")) || climber.GetIsClimbing;
         }
 
         private void ReadWalkInput()
@@ -50,7 +49,7 @@ namespace AK.Controls
 
         private void ReadJumpInput()
         {
-            if (Input.GetButtonDown("Jump") && col.IsTouchingLayers(jumpableMask))
+            if (Input.GetButtonDown("Jump") && feetcol.IsTouchingLayers(jumpableMask))
             {
                 climber.StopClimbing();
                 mover.Jump();
@@ -68,7 +67,7 @@ namespace AK.Controls
         {
             if (Input.GetButton("Vertical"))
             {
-                climber.CheckIfStartClimb(col.IsTouchingLayers(climbableMask), Input.GetAxisRaw("Vertical"), climbableMask);
+                climber.CheckIfStartClimb(feetcol.IsTouchingLayers(climbableMask), Input.GetAxisRaw("Vertical"), climbableMask);
             }
         }
 
@@ -76,8 +75,8 @@ namespace AK.Controls
         {
             if (climber.GetIsClimbing)
             {
-                bool touchingGround = col.IsTouchingLayers(LayerMask.GetMask("Ground"));
-                climber.CheckIfStopClimbing(touchingGround, Input.GetAxisRaw("Vertical") < 0, col.bounds.min.y);
+                bool touchingGround = feetcol.IsTouchingLayers(LayerMask.GetMask("Ground"));
+                climber.CheckIfStopClimbing(touchingGround, Input.GetAxisRaw("Vertical") < 0, feetcol.bounds.min.y);
             }
         }
     }

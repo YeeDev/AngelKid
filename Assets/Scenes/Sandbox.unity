@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 587201671}
   - component: {fileID: 587201670}
   - component: {fileID: 587201669}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: White_Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,6 +697,7 @@ GameObject:
   - component: {fileID: 917963373}
   - component: {fileID: 917963376}
   - component: {fileID: 917963377}
+  - component: {fileID: 917963379}
   - component: {fileID: 917963372}
   - component: {fileID: 917963375}
   - component: {fileID: 917963374}
@@ -800,6 +801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c0d6f65733741bca9cffba6269ed57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feetcol: {fileID: 917963379}
   jumpableMask:
     serializedVersion: 2
     m_Bits: 72
@@ -866,6 +868,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ladderTopOffset: 0.2
+--- !u!61 &917963379
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917963371}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.71}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5625, y: 1.5625}
+    newSize: {x: 1.5625, y: 1.5625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.45, y: 0.18338776}
+  m_EdgeRadius: 0
 --- !u!1 &975238340
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +935,7 @@ GameObject:
   - component: {fileID: 1532500471}
   - component: {fileID: 1532500470}
   - component: {fileID: 1532500469}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: White_Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
