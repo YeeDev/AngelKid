@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe59c646f997e4bff900712cfb78fe0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothSpeed: 0.5
+  smoothYSpeed: 0.5
   yOffset: 2
   leftLock: {fileID: 975238341}
   rightLock: {fileID: 499071838}

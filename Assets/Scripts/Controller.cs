@@ -12,6 +12,7 @@ namespace AK.Controls
         [SerializeField] LayerMask jumpableMask = 0;
         [SerializeField] LayerMask climbableMask = 0;
 
+        float xAxis;
         Mover mover;
         Climber climber;
         Collider2D col;
@@ -41,7 +42,7 @@ namespace AK.Controls
 
         private void ReadWalkInput()
         {
-            float xAxis = Input.GetAxisRaw("Horizontal");
+            xAxis = Input.GetAxisRaw("Horizontal");
             if (climber.GetIsClimbing && Mathf.Abs(xAxis) > Mathf.Epsilon) { climber.StopClimbing(); }
 
             mover.Move(xAxis, Input.GetAxisRaw("Vertical"), climber.GetIsClimbing);
