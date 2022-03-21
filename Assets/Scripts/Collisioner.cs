@@ -21,5 +21,14 @@ namespace AK.Collisions
                 stats.ModifyHealth(-1);
             }
         }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag(damagerTag))
+            {
+                //TODO Grab Damage from another class.
+                stats.ModifyHealth(-1);
+            }
+        }
     }
 }

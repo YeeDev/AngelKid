@@ -1,7 +1,10 @@
 using UnityEngine;
 using AK.Movements;
+using AK.Collisions;
+using AK.UnitsStats;
 
 [RequireComponent(typeof(Mover))]
+[RequireComponent(typeof(Collisioner))]
 public class GroundEnemy : MonoBehaviour
 {
     [SerializeField] bool ignoresFalls = false;
@@ -9,15 +12,26 @@ public class GroundEnemy : MonoBehaviour
     [SerializeField] Collider2D mainCollider = null;
 
     Mover mover;
+    Stats stats;
+    Collisioner collisioner;
 
     private void Awake()
     {
         mover = GetComponent<Mover>();
+        stats = GetComponent<Stats>();
+
+        collisioner = GetComponent<Collisioner>();
+        collisioner.SetStats(stats);
 
         if (movingDirection < 0) { Flip(true); }
     }
 
-    private void Update() { MoveBehaviour(); }
+    private void Update()
+    {
+        if(stats.IsUnitDeath) { Destroy(gameObject); }
+
+        MoveBehaviour();
+    }
 
     private void MoveBehaviour()
     {

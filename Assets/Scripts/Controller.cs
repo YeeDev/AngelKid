@@ -4,12 +4,14 @@ using AK.Movements;
 using AK.Core;
 using AK.UnitsStats;
 using AK.Collisions;
+using AK.Attacks;
 
 namespace AK.Controls
 {
     [RequireComponent(typeof(Mover))]
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(Collisioner))]
+    [RequireComponent(typeof(Shooter))]
     public class Controller : MonoBehaviour
     {
         [SerializeField] Collider2D feetcol = null;
@@ -22,11 +24,13 @@ namespace AK.Controls
         Climber climber;
         Collisioner collisioner;
         CameraViewer cameraViewer;
+        Shooter shooter;
 
         private void Awake()
         {
             mover = GetComponent<Mover>();
             cameraViewer = Camera.main.GetComponent<CameraViewer>();
+            shooter = GetComponent<Shooter>();
             stats = GetComponent<Stats>();
 
             collisioner = GetComponent<Collisioner>();
@@ -47,6 +51,7 @@ namespace AK.Controls
             ReadWalkInput();
             ReadJumpInput();
             ControlClimbState();
+            ReadShootInput();
         }
 
         private void FixedUpdate()
@@ -94,5 +99,7 @@ namespace AK.Controls
                 climber.CheckIfStopClimbing(touchingGround, Input.GetAxisRaw("Vertical") < 0, feetcol.bounds.min.y);
             }
         }
+
+        private void ReadShootInput() { if (Input.GetButtonDown("Fire")) { shooter.Shoot(); } }
     }
 }
