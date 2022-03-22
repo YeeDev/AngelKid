@@ -8,8 +8,14 @@ namespace AK.Core
     {
         [SerializeField] float timeToLoad = 1f;
 
+        bool alreadyLoading;
+
         public IEnumerator LoadLevel()
         {
+            if (alreadyLoading) { yield break; }
+
+            alreadyLoading = true;
+
             yield return new WaitForSeconds(timeToLoad);
 
             int sceneToLoad = (SceneManager.GetActiveScene().buildIndex + 1) % (SceneManager.sceneCount + 1);

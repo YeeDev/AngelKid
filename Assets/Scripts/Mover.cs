@@ -32,6 +32,7 @@ namespace AK.Movements
         {
             rb.velocity = CalculateDirectionalSpeed(xAxis, yAxis, isClimbing);
             animater.CheckIfFlip(xAxis);
+            animater.SetWalkBool(Mathf.Abs(xAxis) > Mathf.Epsilon);
         }
 
         public void Jump() { rb.velocity = new Vector2(rb.velocity.x, jumpForce); }
