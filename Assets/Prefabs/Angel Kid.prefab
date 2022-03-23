@@ -276,6 +276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingParameter: Walking
+  jumpParameter: Jumping
+  groundedParameter: Grounded
+  dustJumpEffect: {fileID: 4183988428632663808, guid: 857c34d05386248988f35503feeb9b3e, type: 3}
 --- !u!1 &8949512501826582534
 GameObject:
   m_ObjectHideFlags: 0

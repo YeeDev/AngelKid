@@ -5,6 +5,7 @@ using AK.Core;
 using AK.UnitsStats;
 using AK.Collisions;
 using AK.Attacks;
+using AK.Animations;
 
 namespace AK.Controls
 {
@@ -16,8 +17,9 @@ namespace AK.Controls
     {
         [SerializeField] Collider2D feetcol = null;
         [SerializeField] LayerMask jumpableMask = 0;
-        [SerializeField] LayerMask climbableMask = 0; 
+        [SerializeField] LayerMask climbableMask = 0;
 
+        bool isGrounded;
         float xAxis;
         Stats stats;
         Mover mover;
@@ -25,6 +27,7 @@ namespace AK.Controls
         Collisioner collisioner;
         CameraViewer cameraViewer;
         Shooter shooter;
+        Animater animater;
 
         private void Awake()
         {
@@ -32,6 +35,7 @@ namespace AK.Controls
             cameraViewer = Camera.main.GetComponent<CameraViewer>();
             shooter = GetComponent<Shooter>();
             stats = GetComponent<Stats>();
+            animater = GetComponent<Animater>();
 
             collisioner = GetComponent<Collisioner>();
             collisioner.SetStats(stats);
@@ -55,10 +59,7 @@ namespace AK.Controls
             shooter.AddToTimer();
         }
 
-        private void FixedUpdate()
-        {
-            cameraViewer.IsPlayerGrounded = feetcol.IsTouchingLayers(LayerMask.GetMask("Jumpable")) || climber.GetIsClimbing;
-        }
+        private void FixedUpdate() { CheckGroundeStated(); }
 
         private void ReadWalkInput()
         {
@@ -70,7 +71,7 @@ namespace AK.Controls
 
         private void ReadJumpInput()
         {
-            if (Input.GetButtonDown("Jump") && feetcol.IsTouchingLayers(jumpableMask))
+            if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 climber.StopClimbing();
                 mover.Jump();
@@ -102,5 +103,13 @@ namespace AK.Controls
         }
 
         private void ReadShootInput() { if (Input.GetButtonDown("Fire")) { shooter.Shoot(); } }
+
+        private void CheckGroundeStated()
+        {
+            isGrounded = feetcol.IsTouchingLayers(jumpableMask);
+
+            cameraViewer.IsPlayerGrounded = isGrounded;
+            animater.SetGrounded(isGrounded);
+        }
     }
 }

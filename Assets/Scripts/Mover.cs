@@ -35,7 +35,11 @@ namespace AK.Movements
             animater.SetWalkBool(Mathf.Abs(xAxis) > Mathf.Epsilon);
         }
 
-        public void Jump() { rb.velocity = new Vector2(rb.velocity.x, jumpForce); }
+        public void Jump()
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            animater.TriggerJump();
+        }
 
         public void HaltJump()
         {
