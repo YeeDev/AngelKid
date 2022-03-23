@@ -1043,10 +1043,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa134aedd1704022b52588e2489e20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingParameter: Walking
-  jumpParameter: Jumping
-  groundedParameter: Grounded
   dustJumpEffect: {fileID: 0}
+  walking: Walking
+  grounded: Grounded
+  verticalSpeed: VerticalSpeed
 --- !u!95 &1739940758
 Animator:
   serializedVersion: 3
@@ -1332,6 +1332,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8949512501238473156, guid: 62022be2883e545ce815687da80f56aa, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 7e140d5388aab48c7bd9164366a73711, type: 2}
+    - target: {fileID: 8949512501238473158, guid: 62022be2883e545ce815687da80f56aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949512501238473158, guid: 62022be2883e545ce815687da80f56aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473176, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1375,6 +1387,18 @@ PrefabInstance:
     - target: {fileID: 8949512501238473176, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949512501238473177, guid: 62022be2883e545ce815687da80f56aa, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949512501238473177, guid: 62022be2883e545ce815687da80f56aa, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949512501238473177, guid: 62022be2883e545ce815687da80f56aa, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473182, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_Name

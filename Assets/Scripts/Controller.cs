@@ -110,6 +110,8 @@ namespace AK.Controls
 
             cameraViewer.IsPlayerGrounded = isGrounded;
             animater.SetGrounded(isGrounded);
+            animater.SetYSpeed(mover.GetYRigidbodySpeed);
+            Debug.Log(mover.GetYRigidbodySpeed);
         }
     }
 }

@@ -7,18 +7,20 @@ namespace AK.Animations
     [RequireComponent(typeof(Animator))]
     public class Animater : MonoBehaviour
     {
-        [SerializeField] string walkingParameter = "Walking";
-        [SerializeField] string jumpParameter = "Jumping";
-        [SerializeField] string groundedParameter = "Grounded";
         [SerializeField] GameObject dustJumpEffect = null;
+        [Header("Animation Parameters")]
+        [SerializeField] string walking = "Walking";
+        [SerializeField] string grounded = "Grounded";
+        [SerializeField] string verticalSpeed = "VerticalSpeed";
 
         bool isFacingLeft;
         Animator anm;
 
         private void Awake() { anm = GetComponent<Animator>(); }
 
-        public void SetWalkBool(bool isWalking) { anm.SetBool(walkingParameter, isWalking); }
-        public void SetGrounded(bool isGrounded) { anm.SetBool(groundedParameter, isGrounded); }
+        public void SetWalkBool(bool isWalking) { anm.SetBool(walking, isWalking); }
+        public void SetGrounded(bool isGrounded) { anm.SetBool(grounded, isGrounded); }
+        public void SetYSpeed(float ySpeed) { anm.SetFloat(verticalSpeed, ySpeed); }
 
         public void CheckIfFlip(float flipDirection)
         {
@@ -34,11 +36,7 @@ namespace AK.Animations
             transform.localScale = flippedScale;
         }
 
-        public void TriggerJump()
-        {
-            InstantiateDust();
-            anm.SetTrigger(jumpParameter);
-        }
+        public void PlayJumpDustEffect() { InstantiateDust(); }
 
         private void InstantiateDust()
         {

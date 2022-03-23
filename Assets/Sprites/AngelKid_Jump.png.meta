@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: f418b43a7e6e444f39f405fce999b067
+guid: 58fd0839b365448fe86748a52bd21fa5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2546565294824267653
-    second: AngelKidJump_0
+      213: -3543169100402103861
+    second: AngelKid_Jump_0
   - first:
-      213: 5352794538604214495
-    second: AngelKidJump_1
+      213: 5771521501891015274
+    second: AngelKid_Jump_1
   - first:
-      213: -8611821927396564082
-    second: AngelKidJump_2
+      213: -4328414995217528699
+    second: AngelKid_Jump_2
+  - first:
+      213: -3262296363731340792
+    second: AngelKid_Jump_3
+  - first:
+      213: 5238687662685595194
+    second: AngelKid_Jump_4
+  - first:
+      213: 6274371334957360014
+    second: AngelKid_Jump_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -74,7 +83,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -86,7 +95,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 128
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -98,7 +107,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 128
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -112,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AngelKidJump_0
+      name: AngelKid_Jump_0
       rect:
         serializedVersion: 2
         x: 0
@@ -126,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7069ac4b58c8acd0800000000000000
-      internalID: -2546565294824267653
+      spriteID: bc96467c97224dec0800000000000000
+      internalID: -3543169100402103861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngelKidJump_1
+      name: AngelKid_Jump_1
       rect:
         serializedVersion: 2
         x: 32
@@ -147,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd8b725c542f84a40800000000000000
-      internalID: 5352794538604214495
+      spriteID: a623eb52a30981050800000000000000
+      internalID: 5771521501891015274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngelKidJump_2
+      name: AngelKid_Jump_2
       rect:
         serializedVersion: 2
         x: 64
@@ -168,8 +177,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e83ab9c9599ac7880800000000000000
-      internalID: -8611821927396564082
+      spriteID: 588c599ae716ee3c0800000000000000
+      internalID: -4328414995217528699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelKid_Jump_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802beb7ddbef9b2d0800000000000000
+      internalID: -3262296363731340792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelKid_Jump_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a36a8976cae83b840800000000000000
+      internalID: 5238687662685595194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelKid_Jump_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e83e6017c7b031750800000000000000
+      internalID: 6274371334957360014
       vertices: []
       indices: 
       edges: []

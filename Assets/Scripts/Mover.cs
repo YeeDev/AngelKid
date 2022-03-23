@@ -14,6 +14,8 @@ namespace AK.Movements
         Animater animater;
         Rigidbody2D rb;
 
+        public float GetYRigidbodySpeed { get => rb.velocity.y; }
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -38,7 +40,7 @@ namespace AK.Movements
         public void Jump()
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            animater.TriggerJump();
+            animater.PlayJumpDustEffect();
         }
 
         public void HaltJump()
