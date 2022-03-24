@@ -11,14 +11,8 @@ namespace AK.Core
 
         [SerializeField] float timeToLoad = 1.5f;
 
-        bool alreadyLoading;
-
         public IEnumerator LoadLevel()
         {
-            if (alreadyLoading) { yield break; }
-
-            alreadyLoading = true;
-
             if (OnLevelLoad != null) { OnLevelLoad(); }
 
             yield return new WaitForSeconds(timeToLoad);
