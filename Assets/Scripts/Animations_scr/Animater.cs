@@ -6,6 +6,7 @@ namespace AK.Animations
     public class Animater : MonoBehaviour
     {
         [SerializeField] GameObject dustJumpEffect = null;
+
         [Header("Animation Parameters")]
         [SerializeField] string walking = "Walking";
         [SerializeField] string grounded = "Grounded";
