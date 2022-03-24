@@ -27,6 +27,7 @@ namespace AK.Animations
         public void SetClimbing(bool isClimbing) { anm.SetBool(climbing, isClimbing); }
         public void SetClimbSpeed(float climbAxis) { anm.SetFloat(climbSpeed, climbAxis); }
         public void TriggerEnterDoor() { anm.SetTrigger(enterDoor); }
+        public void PlayJumpDustEffect() { InstantiateDust(); }
 
         public void CheckIfFlip(float flipDirection)
         {
@@ -41,8 +42,6 @@ namespace AK.Animations
             flippedScale.x = flipDirection;
             transform.localScale = flippedScale;
         }
-
-        public void PlayJumpDustEffect() { InstantiateDust(); }
 
         private void InstantiateDust()
         {
