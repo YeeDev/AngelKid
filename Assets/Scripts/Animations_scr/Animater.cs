@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace AK.Animations
 {
@@ -6,6 +7,7 @@ namespace AK.Animations
     [RequireComponent(typeof(SpriteRenderer))]
     public class Animater : MonoBehaviour
     {
+        [SerializeField] float shootTime = 0.5f;
         [SerializeField] GameObject dustJumpEffect = null;
         [SerializeField] Transform componentsToFlip = null;
 
@@ -17,8 +19,11 @@ namespace AK.Animations
         [SerializeField] string climbing = "Climbing";
         [SerializeField] string climbSpeed = "ClimbSpeed";
         [SerializeField] string enterDoor = "EnterDoor";
+
         #endregion
 
+        float shootLayerTimer;
+        Coroutine shootLayerCoroutine;
         SpriteRenderer rend;
         Animator anm;
 
@@ -42,6 +47,25 @@ namespace AK.Animations
         {
             if (rend.flipX && flipDirection > 0) { FlipXAxis(); }
             if (!rend.flipX && flipDirection < 0) { FlipXAxis(); }
+        }
+
+        public void SetShootLayerWeight()
+        {
+            anm.SetLayerWeight(1, 1);
+            shootLayerTimer = shootTime;
+            if (shootLayerCoroutine == null) { shootLayerCoroutine = StartCoroutine(ReturnToNormalLayer()); }
+        }
+
+        IEnumerator ReturnToNormalLayer()
+        {
+            while (shootLayerTimer > 0)
+            {
+                shootLayerTimer -= Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            anm.SetLayerWeight(1, 0);
+            shootLayerCoroutine = null;
         }
 
         private void FlipXAxis()

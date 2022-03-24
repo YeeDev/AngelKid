@@ -10,6 +10,7 @@ TagManager:
   - Damager
   - PlayerDamager
   - Exit
+  - Enemy
   layers:
   - Default
   - TransparentFX

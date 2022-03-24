@@ -22,7 +22,6 @@ namespace AK.Collisions
         {
             if (other.CompareTag(damagerTag))
             {
-                //TODO Grab Damage from another class.
                 stats.ModifyHealth(-1);
             }
         }
