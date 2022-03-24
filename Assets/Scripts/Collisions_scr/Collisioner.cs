@@ -18,18 +18,9 @@ namespace AK.Collisions
 
         public bool IsTouchingLayer(LayerMask layer) { return groundCollider.IsTouchingLayers(layer); }
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.transform.CompareTag(damagerTag))
-            {
-                //TODO Grab Damage from another class.
-                stats.ModifyHealth(-1);
-            }
-        }
-
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag(damagerTag) && !transform.CompareTag("Player"))
+            if (other.CompareTag(damagerTag))
             {
                 //TODO Grab Damage from another class.
                 stats.ModifyHealth(-1);
