@@ -14,12 +14,9 @@ namespace AK.Collisions
 
         public float GetColliderMinYBound { get => groundCollider.bounds.min.y; }
 
-        public bool IsTouchingLayer(LayerMask layer) { return groundCollider.IsTouchingLayers(layer); }
+        public void InitializeCollisioner(Stats stats) { this.stats = stats; }
 
-        public void InitializeCollisioner(Stats stats, Animater animater)
-        {
-            this.stats = stats;
-        }
+        public bool IsTouchingLayer(LayerMask layer) { return groundCollider.IsTouchingLayers(layer); }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {

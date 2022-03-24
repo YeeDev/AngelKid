@@ -51,8 +51,8 @@ namespace AK.Controls
 
         private void InitializeScripts()
         {
-            collisioner.InitializeCollisioner(stats, animater);
-            climber.SetMove(mover);
+            collisioner.InitializeCollisioner(stats);
+            climber.InitializeClimber(mover);
         }
 
         private void Update()

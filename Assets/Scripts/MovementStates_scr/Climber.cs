@@ -11,7 +11,7 @@ namespace AK.MovementStates
         EdgeCollider2D topOfLadder;
 
         public bool GetIsClimbing { get => isClimbing; }
-        public void SetMove(Mover mover) { this.mover = mover; }
+        public void InitializeClimber(Mover mover) { this.mover = mover; }
 
         public void CheckIfStartClimb(bool touchingLadder, float yAxis, LayerMask climbableMask)
         {
