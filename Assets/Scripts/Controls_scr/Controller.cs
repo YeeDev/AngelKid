@@ -32,19 +32,26 @@ namespace AK.Controls
 
         private void Awake()
         {
+            GetAndSetScripts();
+            InitializeScripts();
+        }
+
+        private void GetAndSetScripts()
+        {
             mover = GetComponent<Mover>();
-            cameraViewer = Camera.main.GetComponent<CameraViewer>();
-            shooter = GetComponent<Shooter>();
             stats = GetComponent<Stats>();
-            animater = GetComponent<Animater>();
-
-            collisioner = GetComponent<Collisioner>();
-            collisioner.InitializeCollisioner(stats, animater);
-
+            shooter = GetComponent<Shooter>();
             climber = GetComponent<Climber>();
-            climber.SetMove(mover);
-
+            animater = GetComponent<Animater>();
+            collisioner = GetComponent<Collisioner>();
+            cameraViewer = Camera.main.GetComponent<CameraViewer>();
             levelLoader = GameObject.FindWithTag("GameController").GetComponent<LevelLoader>();
+        }
+
+        private void InitializeScripts()
+        {
+            collisioner.InitializeCollisioner(stats, animater);
+            climber.SetMove(mover);
         }
 
         private void Update()
