@@ -15,14 +15,14 @@ namespace AK.Attacks
 
         public void AddToTimer() { fireRateTimer += Time.deltaTime; }
 
-        public void Shoot()
+        public void Shoot(float direction)
         {
             if (fireRateTimer < fireRate) { return; }
 
             fireRateTimer = 0;
             GameObject missileInstance = Instantiate(missilePrefab, muzzle.position, Quaternion.identity);
             Missile missile = missileInstance.GetComponent<Missile>();
-            missile.SetDirection(transform.localScale.x);
+            missile.SetDirection(direction);
         }
     }
 }

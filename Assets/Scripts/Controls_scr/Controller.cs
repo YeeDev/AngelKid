@@ -112,7 +112,7 @@ namespace AK.Controls
             }
         }
 
-        private void ReadShootInput() { if (Input.GetButtonDown("Fire")) { shooter.Shoot(); } }
+        private void ReadShootInput() { if (Input.GetButtonDown("Fire")) { shooter.Shoot(animater.GetLookingDirection); } }
 
         private void ReadEnterDoorInput()
         {
