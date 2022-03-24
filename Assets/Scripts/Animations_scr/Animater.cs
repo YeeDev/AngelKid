@@ -58,7 +58,7 @@ namespace AK.Animations
         private void InstantiateDust()
         {
             Transform dust = Instantiate(dustJumpEffect, transform.position, Quaternion.identity).transform;
-            dust.localScale = transform.localScale;
+            dust.localScale = new Vector2(dust.localScale.x * GetLookingDirection, dust.localScale.y);
             Destroy(dust.gameObject, 1f);
         }
     }
