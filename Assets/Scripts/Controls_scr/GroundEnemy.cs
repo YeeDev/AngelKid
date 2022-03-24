@@ -1,25 +1,28 @@
 using UnityEngine;
-using AK.Movements;
 using AK.Collisions;
 using AK.UnitsStats;
+using AK.Animations;
 
 namespace AK.Controls
 {
-    [RequireComponent(typeof(Mover))]
+    [RequireComponent(typeof(Animater))]
     [RequireComponent(typeof(Collisioner))]
     public class GroundEnemy : MonoBehaviour
     {
         [SerializeField] bool ignoresFalls = false;
-        [Range(-1, 1)] [SerializeField] float movingDirection = 1f;
-        [SerializeField] Collider2D mainCollider = null;
+        [Range(-1, 1)] [SerializeField] float startingDirection = 1f;
+        [Range(0, 10)] [SerializeField] float moveSpeed = 0f;
+        [SerializeField] Collider2D checkCollider = null;
 
-        Mover mover;
         Stats stats;
+        Animater animater;
+        Rigidbody2D rb;
 
         private void Awake()
         {
-            mover = GetComponent<Mover>();
             stats = GetComponent<Stats>();
+            rb = GetComponent<Rigidbody2D>();
+            animater = GetComponent<Animater>();
         }
 
         private void Update()
@@ -31,13 +34,14 @@ namespace AK.Controls
 
         private void MoveBehaviour()
         {
-            if (ignoresFalls && !mainCollider.IsTouchingLayers(LayerMask.GetMask("Jumpable")))
+            if (ignoresFalls && !checkCollider.IsTouchingLayers(LayerMask.GetMask("Jumpable")))
             {
-                mover.StopRigidbody(true);
+                rb.velocity = Vector2.zero;
                 return;
             }
 
-            mover.Move(movingDirection, 0, false);
+            rb.velocity = new Vector2(startingDirection * moveSpeed, 0);
+            animater.CheckIfFlip(rb.velocity.x);
         }
 
         private void OnTriggerExit2D(Collider2D collision)
@@ -50,6 +54,6 @@ namespace AK.Controls
 
         private void OnTriggerEnter2D(Collider2D collision) { if (collision.CompareTag("Wall")) { FlipMovingDirection(); } }
 
-        private void FlipMovingDirection() { movingDirection *= -1; }
+        private void FlipMovingDirection() { startingDirection *= -1; }
     }
 }
