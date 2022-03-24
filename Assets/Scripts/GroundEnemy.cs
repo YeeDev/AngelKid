@@ -22,7 +22,7 @@ public class GroundEnemy : MonoBehaviour
         stats = GetComponent<Stats>();
 
         collisioner = GetComponent<Collisioner>();
-        collisioner.SetStats(stats);
+        collisioner.InitializeCollisioner(stats, null);
     }
 
     private void Update()

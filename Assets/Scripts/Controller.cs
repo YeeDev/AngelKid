@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using AK.MovementStates;
 using AK.Movements;
 using AK.Core;
@@ -15,12 +16,15 @@ namespace AK.Controls
     [RequireComponent(typeof(Shooter))]
     public class Controller : MonoBehaviour
     {
+        public event Action OnEnterDoor; 
+
         [SerializeField] Collider2D feetcol = null;
         [SerializeField] LayerMask jumpableMask = 0;
         [SerializeField] LayerMask climbableMask = 0;
 
         bool isGrounded;
         float xAxis;
+
         Stats stats;
         Mover mover;
         Climber climber;
@@ -28,6 +32,7 @@ namespace AK.Controls
         CameraViewer cameraViewer;
         Shooter shooter;
         Animater animater;
+        LevelLoader levelLoader;
 
         private void Awake()
         {
@@ -38,10 +43,12 @@ namespace AK.Controls
             animater = GetComponent<Animater>();
 
             collisioner = GetComponent<Collisioner>();
-            collisioner.SetStats(stats);
+            collisioner.InitializeCollisioner(stats, animater);
 
             climber = GetComponent<Climber>();
             climber.SetMove(mover);
+
+            levelLoader = GameObject.FindWithTag("GameController").GetComponent<LevelLoader>();
         }
 
         private void Update()
@@ -56,6 +63,7 @@ namespace AK.Controls
             ReadJumpInput();
             ControlClimbState();
             ReadShootInput();
+            ReadEnterDoorInput();
             shooter.AddToTimer();
         }
 
@@ -101,6 +109,19 @@ namespace AK.Controls
         }
 
         private void ReadShootInput() { if (Input.GetButtonDown("Fire")) { shooter.Shoot(); } }
+
+        private void ReadEnterDoorInput()
+        {
+            if (Input.GetAxisRaw("Vertical") > Mathf.Epsilon && feetcol.IsTouchingLayers(LayerMask.GetMask("Door")))
+            {
+                if (OnEnterDoor != null) { OnEnterDoor(); }
+
+                StartCoroutine(levelLoader.LoadLevel());
+                animater.TriggerEnterDoor();
+                mover.StopRigidbody();
+                enabled = false;
+            }
+        }
 
         private void CheckGroundedState()
         {

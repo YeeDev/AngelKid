@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,7 +7,9 @@ namespace AK.Core
 {
     public class LevelLoader : MonoBehaviour
     {
-        [SerializeField] float timeToLoad = 1f;
+        public event Action OnLevelLoad;
+
+        [SerializeField] float timeToLoad = 1.5f;
 
         bool alreadyLoading;
 
@@ -15,6 +18,8 @@ namespace AK.Core
             if (alreadyLoading) { yield break; }
 
             alreadyLoading = true;
+
+            if (OnLevelLoad != null) { OnLevelLoad(); }
 
             yield return new WaitForSeconds(timeToLoad);
 

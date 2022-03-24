@@ -14,6 +14,7 @@ namespace AK.Animations
         [SerializeField] string verticalSpeed = "VerticalSpeed";
         [SerializeField] string climbing = "Climbing";
         [SerializeField] string climbSpeed = "ClimbSpeed";
+        [SerializeField] string enterDoor = "EnterDoor";
 
         bool isFacingLeft;
         Animator anm;
@@ -25,6 +26,7 @@ namespace AK.Animations
         public void SetFallSpeed(float fallSpeed) { anm.SetFloat(verticalSpeed, fallSpeed); }
         public void SetClimbing(bool isClimbing) { anm.SetBool(climbing, isClimbing); }
         public void SetClimbSpeed(float climbAxis) { anm.SetFloat(climbSpeed, climbAxis); }
+        public void TriggerEnterDoor() { anm.SetTrigger(enterDoor); }
 
         public void CheckIfFlip(float flipDirection)
         {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using AK.UnitsStats;
 using AK.Core;
+using AK.Animations;
 
 namespace AK.Collisions
 {
@@ -10,11 +11,11 @@ namespace AK.Collisions
         [SerializeField] string damagerTag = "Damager";
 
         Stats stats;
-        LevelLoader levelLoader;
 
-        public void SetStats(Stats value) { stats = value; }
-
-        private void Awake() { levelLoader = GameObject.FindWithTag("GameController").GetComponent<LevelLoader>(); }
+        public void InitializeCollisioner(Stats stats, Animater animater)
+        {
+            this.stats = stats;
+        }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -31,11 +32,6 @@ namespace AK.Collisions
             {
                 //TODO Grab Damage from another class.
                 stats.ModifyHealth(-1);
-            }
-
-            if (transform.CompareTag("Player") && other.CompareTag("Exit"))
-            {
-                StartCoroutine(levelLoader.LoadLevel());
             }
         }
     }

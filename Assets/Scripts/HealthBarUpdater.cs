@@ -1,38 +1,41 @@
 using UnityEngine;
 using AK.UnitsStats;
 
-public class HealthBarUpdater : MonoBehaviour
+namespace AK.UI
 {
-    [SerializeField] float heartSize = 9f;
-    [SerializeField] RectTransform heartBarFilled = null;
-    [SerializeField] RectTransform heartBarBlank = null;
-
-    Stats stats;
-    Transform player;
-
-    private void Awake()
+    public class HealthBarUpdater : MonoBehaviour
     {
-        player = GameObject.FindWithTag("Player").transform;
-        stats = player.GetComponent<Stats>();
+        [SerializeField] float heartSize = 9f;
+        [SerializeField] RectTransform heartBarFilled = null;
+        [SerializeField] RectTransform heartBarBlank = null;
 
-        InitilizeHearts();
-    }
+        Stats stats;
+        Transform player;
 
-    private void InitilizeHearts()
-    {
-        UpdateHealthBar(heartBarBlank);
-        UpdateFilledBar();
-    }
+        private void Awake()
+        {
+            player = GameObject.FindWithTag("Player").transform;
+            stats = player.GetComponent<Stats>();
 
-    private void OnEnable() { stats.OnHealthChange += UpdateFilledBar; }
-    private void OnDisable() { stats.OnHealthChange -= UpdateFilledBar; }
+            InitilizeHearts();
+        }
 
-    private void UpdateFilledBar() { UpdateHealthBar(heartBarFilled); }
+        private void InitilizeHearts()
+        {
+            UpdateHealthBar(heartBarBlank);
+            UpdateFilledBar();
+        }
 
-    private void UpdateHealthBar(RectTransform barToUpdate)
-    {
-        Vector2 barUpdatedSize = barToUpdate.sizeDelta;
-        barUpdatedSize.x = stats.GetCurrentHealth * heartSize;
-        barToUpdate.sizeDelta = barUpdatedSize;
+        private void OnEnable() { stats.OnHealthChange += UpdateFilledBar; }
+        private void OnDisable() { stats.OnHealthChange -= UpdateFilledBar; }
+
+        private void UpdateFilledBar() { UpdateHealthBar(heartBarFilled); }
+
+        private void UpdateHealthBar(RectTransform barToUpdate)
+        {
+            Vector2 barUpdatedSize = barToUpdate.sizeDelta;
+            barUpdatedSize.x = stats.GetCurrentHealth * heartSize;
+            barToUpdate.sizeDelta = barUpdatedSize;
+        }
     }
 }
