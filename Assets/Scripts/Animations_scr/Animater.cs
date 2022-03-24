@@ -7,6 +7,7 @@ namespace AK.Animations
     {
         [SerializeField] GameObject dustJumpEffect = null;
 
+        #region "Animation Parameters"
         [Header("Animation Parameters")]
         [SerializeField] string walking = "Walking";
         [SerializeField] string grounded = "Grounded";
@@ -14,6 +15,7 @@ namespace AK.Animations
         [SerializeField] string climbing = "Climbing";
         [SerializeField] string climbSpeed = "ClimbSpeed";
         [SerializeField] string enterDoor = "EnterDoor";
+        #endregion
 
         bool isFacingLeft;
         Animator anm;

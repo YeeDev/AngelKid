@@ -17,6 +17,7 @@ namespace AK.Controls
     {
         [SerializeField] LayerMask jumpableMask = 0;
         [SerializeField] LayerMask climbableMask = 0;
+        [SerializeField] LayerMask doorMask = 0;
 
         bool isGrounded;
         float xAxis;
@@ -115,7 +116,7 @@ namespace AK.Controls
 
         private void ReadEnterDoorInput()
         {
-            if (Input.GetAxisRaw("Vertical") > Mathf.Epsilon && collisioner.IsTouchingLayer(LayerMask.GetMask("Door")))
+            if (Input.GetAxisRaw("Vertical") > Mathf.Epsilon && collisioner.IsTouchingLayer(doorMask))
             {
                 StartCoroutine(levelLoader.LoadLevel());
                 animater.TriggerEnterDoor();
