@@ -33,14 +33,17 @@ namespace AK.Movements
         public void Move(float xAxis, float yAxis, bool isClimbing)
         {
             rb.velocity = CalculateDirectionalSpeed(xAxis, yAxis, isClimbing);
-            animater.CheckIfFlip(xAxis);
+
+            animater.CheckIfFlip(isClimbing ? 0 : xAxis);
             animater.SetWalkBool(Mathf.Abs(xAxis) > Mathf.Epsilon);
+            animater.SetClimbing(isClimbing);
+            animater.SetClimbSpeed(yAxis);
         }
 
-        public void Jump()
+        public void Jump(bool isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            animater.PlayJumpDustEffect();
+            if (isGrounded) { animater.PlayJumpDustEffect(); }
         }
 
         public void HaltJump()
@@ -55,8 +58,8 @@ namespace AK.Movements
         private Vector2 CalculateDirectionalSpeed(float xAxis, float yAxis, bool isClimbing)
         {
             Vector2 directionalSpeed = Vector2.zero;
-            directionalSpeed.x = xAxis * moveSpeed;
-            directionalSpeed.y = isClimbing ? yAxis * climbingSpeed : rb.velocity.y;
+            directionalSpeed.x = isClimbing ? 0 : xAxis * moveSpeed;
+            directionalSpeed.y = isClimbing ? yAxis : rb.velocity.y;
 
             return directionalSpeed;
         }

@@ -59,22 +59,21 @@ namespace AK.Controls
             shooter.AddToTimer();
         }
 
-        private void FixedUpdate() { CheckGroundeStated(); }
+        private void FixedUpdate() { CheckGroundedState(); }
 
         private void ReadWalkInput()
         {
             xAxis = Input.GetAxisRaw("Horizontal");
-            if (climber.GetIsClimbing && Mathf.Abs(xAxis) > Mathf.Epsilon) { climber.StopClimbing(); }
 
             mover.Move(xAxis, Input.GetAxisRaw("Vertical"), climber.GetIsClimbing);
         }
 
         private void ReadJumpInput()
         {
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (Input.GetButtonDown("Jump") && (isGrounded || climber.GetIsClimbing))
             {
                 climber.StopClimbing();
-                mover.Jump();
+                mover.Jump(isGrounded);
             }
             if (Input.GetButtonUp("Jump")) { mover.HaltJump(); }
         }
@@ -97,21 +96,19 @@ namespace AK.Controls
         {
             if (climber.GetIsClimbing)
             {
-                bool touchingGround = feetcol.IsTouchingLayers(LayerMask.GetMask("Ground"));
-                climber.CheckIfStopClimbing(touchingGround, Input.GetAxisRaw("Vertical") < 0, feetcol.bounds.min.y);
+                climber.CheckIfStopClimbing(isGrounded, Input.GetAxisRaw("Vertical") < 0, feetcol.bounds.min.y);
             }
         }
 
         private void ReadShootInput() { if (Input.GetButtonDown("Fire")) { shooter.Shoot(); } }
 
-        private void CheckGroundeStated()
+        private void CheckGroundedState()
         {
             isGrounded = feetcol.IsTouchingLayers(jumpableMask);
 
-            cameraViewer.IsPlayerGrounded = isGrounded;
-            animater.SetGrounded(isGrounded);
-            animater.SetYSpeed(mover.GetYRigidbodySpeed);
-            Debug.Log(mover.GetYRigidbodySpeed);
+            cameraViewer.IsPlayerGrounded = isGrounded || climber.GetIsClimbing;
+            animater.SetGrounded(isGrounded || climber.GetIsClimbing);
+            animater.SetFallSpeed(mover.GetYRigidbodySpeed);
         }
     }
 }

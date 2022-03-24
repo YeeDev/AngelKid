@@ -9,7 +9,7 @@ namespace AK.MovementStates
         Mover mover;
         Collider2D ladder;
         EdgeCollider2D topOfLadder;
-        
+
         public bool GetIsClimbing { get => isClimbing; }
         public void SetMove(Mover mover) { this.mover = mover; }
 

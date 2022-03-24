@@ -12,6 +12,8 @@ namespace AK.Animations
         [SerializeField] string walking = "Walking";
         [SerializeField] string grounded = "Grounded";
         [SerializeField] string verticalSpeed = "VerticalSpeed";
+        [SerializeField] string climbing = "Climbing";
+        [SerializeField] string climbSpeed = "ClimbSpeed";
 
         bool isFacingLeft;
         Animator anm;
@@ -20,7 +22,9 @@ namespace AK.Animations
 
         public void SetWalkBool(bool isWalking) { anm.SetBool(walking, isWalking); }
         public void SetGrounded(bool isGrounded) { anm.SetBool(grounded, isGrounded); }
-        public void SetYSpeed(float ySpeed) { anm.SetFloat(verticalSpeed, ySpeed); }
+        public void SetFallSpeed(float fallSpeed) { anm.SetFloat(verticalSpeed, fallSpeed); }
+        public void SetClimbing(bool isClimbing) { anm.SetBool(climbing, isClimbing); }
+        public void SetClimbSpeed(float climbAxis) { anm.SetFloat(climbSpeed, climbAxis); }
 
         public void CheckIfFlip(float flipDirection)
         {
