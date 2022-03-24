@@ -3,9 +3,11 @@ using UnityEngine;
 namespace AK.Animations
 {
     [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(SpriteRenderer))]
     public class Animater : MonoBehaviour
     {
         [SerializeField] GameObject dustJumpEffect = null;
+        [SerializeField] Transform componentsToFlip = null;
 
         #region "Animation Parameters"
         [Header("Animation Parameters")]
@@ -17,10 +19,16 @@ namespace AK.Animations
         [SerializeField] string enterDoor = "EnterDoor";
         #endregion
 
-        bool isFacingLeft;
+        SpriteRenderer rend;
         Animator anm;
 
-        private void Awake() { anm = GetComponent<Animator>(); }
+        public float GetLookingDirection { get => rend.flipX ? -1 : 1; }
+
+        private void Awake()
+        {
+            anm = GetComponent<Animator>();
+            rend = GetComponent<SpriteRenderer>();
+        }
 
         public void SetWalkBool(bool isWalking) { anm.SetBool(walking, isWalking); }
         public void SetGrounded(bool isGrounded) { anm.SetBool(grounded, isGrounded); }
@@ -32,16 +40,19 @@ namespace AK.Animations
 
         public void CheckIfFlip(float flipDirection)
         {
-            if (isFacingLeft && flipDirection > 0) { Flip(flipDirection); }
-            if (!isFacingLeft && flipDirection < 0) { Flip(flipDirection); }
+            if (rend.flipX && flipDirection > 0) { FlipXAxis(); }
+            if (!rend.flipX && flipDirection < 0) { FlipXAxis(); }
         }
 
-        public void Flip(float flipDirection)
+        private void FlipXAxis()
         {
-            isFacingLeft = !isFacingLeft;
-            Vector3 flippedScale = transform.localScale;
-            flippedScale.x = flipDirection;
-            transform.localScale = flippedScale;
+            rend.flipX = !rend.flipX;
+
+            if (componentsToFlip == null) { return; }
+
+            Vector2 flippedScale = Vector2.one;
+            flippedScale.x = rend.flipX ? -1 : 1;
+            componentsToFlip.localScale = flippedScale;
         }
 
         private void InstantiateDust()
