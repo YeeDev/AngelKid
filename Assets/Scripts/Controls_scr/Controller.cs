@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 using AK.MovementStates;
 using AK.Movements;
 using AK.Core;
@@ -16,9 +15,6 @@ namespace AK.Controls
     [RequireComponent(typeof(Shooter))]
     public class Controller : MonoBehaviour
     {
-        public event Action OnEnterDoor; 
-
-        [SerializeField] Collider2D feetcol = null;
         [SerializeField] LayerMask jumpableMask = 0;
         [SerializeField] LayerMask climbableMask = 0;
 
@@ -96,7 +92,7 @@ namespace AK.Controls
         {
             if (Input.GetButton("Vertical"))
             {
-                climber.CheckIfStartClimb(feetcol.IsTouchingLayers(climbableMask), Input.GetAxisRaw("Vertical"), climbableMask);
+                climber.CheckIfStartClimb(collisioner.IsTouchingLayer(climbableMask), Input.GetAxisRaw("Vertical"), climbableMask);
             }
         }
 
@@ -104,7 +100,7 @@ namespace AK.Controls
         {
             if (climber.GetIsClimbing)
             {
-                climber.CheckIfStopClimbing(isGrounded, Input.GetAxisRaw("Vertical") < 0, feetcol.bounds.min.y);
+                climber.CheckIfStopClimbing(isGrounded, Input.GetAxisRaw("Vertical") < 0, collisioner.GetColliderMinYBound);
             }
         }
 
@@ -112,10 +108,8 @@ namespace AK.Controls
 
         private void ReadEnterDoorInput()
         {
-            if (Input.GetAxisRaw("Vertical") > Mathf.Epsilon && feetcol.IsTouchingLayers(LayerMask.GetMask("Door")))
+            if (Input.GetAxisRaw("Vertical") > Mathf.Epsilon && collisioner.IsTouchingLayer(LayerMask.GetMask("Door")))
             {
-                if (OnEnterDoor != null) { OnEnterDoor(); }
-
                 StartCoroutine(levelLoader.LoadLevel());
                 animater.TriggerEnterDoor();
                 mover.StopRigidbody();
@@ -125,7 +119,7 @@ namespace AK.Controls
 
         private void CheckGroundedState()
         {
-            isGrounded = feetcol.IsTouchingLayers(jumpableMask);
+            isGrounded = collisioner.IsTouchingLayer(jumpableMask);
 
             cameraViewer.IsPlayerGrounded = isGrounded || climber.GetIsClimbing;
             animater.SetGrounded(isGrounded || climber.GetIsClimbing);

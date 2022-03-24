@@ -8,8 +8,13 @@ namespace AK.Collisions
     public class Collisioner : MonoBehaviour
     {
         [SerializeField] string damagerTag = "Damager";
+        [SerializeField] Collider2D groundCollider = null;
 
         Stats stats;
+
+        public float GetColliderMinYBound { get => groundCollider.bounds.min.y; }
+
+        public bool IsTouchingLayer(LayerMask layer) { return groundCollider.IsTouchingLayers(layer); }
 
         public void InitializeCollisioner(Stats stats, Animater animater)
         {
