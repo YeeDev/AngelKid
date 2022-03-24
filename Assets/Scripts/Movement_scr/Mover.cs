@@ -24,7 +24,11 @@ namespace AK.Movements
             initialGravity = rb.gravityScale;
         }
 
-        public void SetGravity(bool setToInital, float gravityScale = 0) { rb.gravityScale = setToInital ? initialGravity : gravityScale; }
+        public void SetGravity(bool setToInital, float gravityScale = 0)
+        {
+            rb.gravityScale = setToInital ? initialGravity : gravityScale;
+        }
+
         public void StopRigidbody(bool keepFallSpeed = false)
         {
             rb.velocity = keepFallSpeed ? new Vector2(0, rb.velocity.y) : Vector2.zero;
@@ -35,6 +39,7 @@ namespace AK.Movements
             rb.velocity = CalculateDirectionalSpeed(xAxis, yAxis, isClimbing);
 
             animater.CheckIfFlip(isClimbing ? 0 : xAxis);
+
             animater.SetWalkBool(Mathf.Abs(xAxis) > Mathf.Epsilon);
             animater.SetClimbing(isClimbing);
             animater.SetClimbSpeed(yAxis);
@@ -59,7 +64,7 @@ namespace AK.Movements
         {
             Vector2 directionalSpeed = Vector2.zero;
             directionalSpeed.x = isClimbing ? 0 : xAxis * moveSpeed;
-            directionalSpeed.y = isClimbing ? yAxis : rb.velocity.y;
+            directionalSpeed.y = isClimbing ? yAxis * climbingSpeed : rb.velocity.y;
 
             return directionalSpeed;
         }
