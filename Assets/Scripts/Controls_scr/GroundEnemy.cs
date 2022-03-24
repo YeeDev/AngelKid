@@ -15,15 +15,11 @@ namespace AK.Controls
 
         Mover mover;
         Stats stats;
-        Collisioner collisioner;
 
         private void Awake()
         {
             mover = GetComponent<Mover>();
             stats = GetComponent<Stats>();
-
-            collisioner = GetComponent<Collisioner>();
-            collisioner.InitializeCollisioner(stats, null);
         }
 
         private void Update()
@@ -44,7 +40,13 @@ namespace AK.Controls
             mover.Move(movingDirection, 0, false);
         }
 
-        private void OnTriggerExit2D(Collider2D collision) { if (collision.CompareTag("Ground") && !ignoresFalls) { FlipMovingDirection(); } }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Ground") && !ignoresFalls)
+            {
+                FlipMovingDirection();
+            }
+        }
 
         private void OnTriggerEnter2D(Collider2D collision) { if (collision.CompareTag("Wall")) { FlipMovingDirection(); } }
 
