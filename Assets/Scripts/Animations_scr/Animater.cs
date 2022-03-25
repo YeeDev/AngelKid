@@ -19,7 +19,7 @@ namespace AK.Animations
         [SerializeField] string climbing = "Climbing";
         [SerializeField] string climbSpeed = "ClimbSpeed";
         [SerializeField] string enterDoor = "EnterDoor";
-
+        [SerializeField] string shoot = "Shoot";
         #endregion
 
         float shootLayerTimer;
@@ -42,30 +42,12 @@ namespace AK.Animations
         public void SetClimbSpeed(float climbAxis) { anm.SetFloat(climbSpeed, climbAxis); }
         public void TriggerEnterDoor() { anm.SetTrigger(enterDoor); }
         public void PlayJumpDustEffect() { InstantiateDust(); }
+        public void TriggerShoot() { anm.SetTrigger(shoot); }
 
         public void CheckIfFlip(float flipDirection)
         {
             if (rend.flipX && flipDirection > 0) { FlipXAxis(); }
             if (!rend.flipX && flipDirection < 0) { FlipXAxis(); }
-        }
-
-        public void SetShootLayerWeight()
-        {
-            anm.SetLayerWeight(1, 1);
-            shootLayerTimer = shootTime;
-            if (shootLayerCoroutine == null) { shootLayerCoroutine = StartCoroutine(ReturnToNormalLayer()); }
-        }
-
-        IEnumerator ReturnToNormalLayer()
-        {
-            while (shootLayerTimer > 0)
-            {
-                shootLayerTimer -= Time.deltaTime;
-                yield return new WaitForEndOfFrame();
-            }
-
-            anm.SetLayerWeight(1, 0);
-            shootLayerCoroutine = null;
         }
 
         private void FlipXAxis()

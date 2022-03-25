@@ -716,6 +716,7 @@ MonoBehaviour:
   climbing: Climbing
   climbSpeed: ClimbSpeed
   enterDoor: EnterDoor
+  shoot: Shoot
 --- !u!114 &1176537905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1388,6 +1389,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8243016752815228116, guid: 62022be2883e545ce815687da80f56aa, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473176, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1432,21 +1437,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8949512501238473177, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473182, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_Name
       value: Angel Kid
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949512501826582529, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.267
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949512501826582529, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.037
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62022be2883e545ce815687da80f56aa, type: 3}

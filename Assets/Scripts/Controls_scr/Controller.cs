@@ -68,7 +68,6 @@ namespace AK.Controls
             ControlClimbState();
             ReadShootInput();
             ReadEnterDoorInput();
-            shooter.AddToTimer();
         }
 
         private void FixedUpdate() { CheckGroundedState(); }
@@ -114,10 +113,7 @@ namespace AK.Controls
 
         private void ReadShootInput()
         {
-            if (Input.GetButtonDown("Fire") && !climber.GetIsClimbing)
-            {
-                shooter.Shoot(animater.GetLookingDirection);
-            }
+            if (Input.GetButtonDown("Fire") && !climber.GetIsClimbing) { animater.TriggerShoot(); }
         }
 
         private void ReadEnterDoorInput()

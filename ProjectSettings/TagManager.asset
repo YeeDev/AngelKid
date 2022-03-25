@@ -48,3 +48,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Angel Kid
+    uniqueID: 1826059787
+    locked: 0

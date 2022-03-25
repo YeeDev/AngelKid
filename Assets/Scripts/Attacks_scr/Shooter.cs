@@ -8,28 +8,16 @@ namespace AK.Attacks
     {
         [SerializeField] GameObject missilePrefab = null;
         [SerializeField] Transform muzzle = null;
-        [SerializeField] float fireRate = 1f;
 
-        float fireRateTimer;
         Animater animater;
 
-        private void Awake()
+        private void Awake() { animater = GetComponent<Animater>(); }
+
+        public void Shoot()
         {
-            fireRateTimer = fireRate;
-            animater = GetComponent<Animater>();
-        }
-
-        public void AddToTimer() { fireRateTimer += Time.deltaTime; }
-
-        public void Shoot(float direction)
-        {
-            if (fireRateTimer < fireRate) { return; }
-
-            fireRateTimer = 0;
             GameObject missileInstance = Instantiate(missilePrefab, muzzle.position, Quaternion.identity);
             Missile missile = missileInstance.GetComponent<Missile>();
-            missile.SetDirection(direction);
-            animater.SetShootLayerWeight();
+            missile.SetDirection(animater.GetLookingDirection);
         }
     }
 }
