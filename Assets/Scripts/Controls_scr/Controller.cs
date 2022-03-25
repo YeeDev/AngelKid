@@ -27,7 +27,6 @@ namespace AK.Controls
         Climber climber;
         Collisioner collisioner;
         CameraViewer cameraViewer;
-        Shooter shooter;
         Animater animater;
         LevelLoader levelLoader;
 
@@ -41,7 +40,6 @@ namespace AK.Controls
         {
             mover = GetComponent<Mover>();
             stats = GetComponent<Stats>();
-            shooter = GetComponent<Shooter>();
             climber = GetComponent<Climber>();
             animater = GetComponent<Animater>();
             collisioner = GetComponent<Collisioner>();
