@@ -27,7 +27,6 @@ namespace AK.Controls
         Climber climber;
         Collisioner collisioner;
         CameraViewer cameraViewer;
-        Shooter shooter;
         Animater animater;
         LevelLoader levelLoader;
 

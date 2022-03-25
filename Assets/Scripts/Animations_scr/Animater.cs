@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 namespace AK.Animations
 {
@@ -7,7 +6,6 @@ namespace AK.Animations
     [RequireComponent(typeof(SpriteRenderer))]
     public class Animater : MonoBehaviour
     {
-        [SerializeField] float shootTime = 0.5f;
         [SerializeField] GameObject dustJumpEffect = null;
         [SerializeField] Transform componentsToFlip = null;
 
@@ -22,8 +20,6 @@ namespace AK.Animations
         [SerializeField] string shoot = "Shoot";
         #endregion
 
-        float shootLayerTimer;
-        Coroutine shootLayerCoroutine;
         SpriteRenderer rend;
         Animator anm;
 
