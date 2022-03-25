@@ -70,6 +70,20 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 0}
+    - time: 0.14285715
+      value: {fileID: 0}
+    - time: 0.2857143
+      value: {fileID: 0}
+    - time: 0.42857143
+      value: {fileID: 0}
+    - time: 0.5714286
+      value: {fileID: 0}
+    - time: 0.71428573
+      value: {fileID: 0}
+    - time: 0.85714287
+      value: {fileID: 0}
+    - time: 1
+      value: {fileID: 0}
     attribute: m_Sprite
     path: Components to Flip/Body Sprite
     classID: 212
@@ -111,6 +125,13 @@ AnimationClip:
     - {fileID: 5368290267237835258, guid: e41b4a6189c36443aa7f11765b3fee4e, type: 3}
     - {fileID: -159937360198678454, guid: e41b4a6189c36443aa7f11765b3fee4e, type: 3}
     - {fileID: 7881907632895681371, guid: e41b4a6189c36443aa7f11765b3fee4e, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2

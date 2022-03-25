@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 58fd0839b365448fe86748a52bd21fa5
+guid: cb7d5625a039640f390ba42665d682ae
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: 6274371334957360014
     second: AngelKid_Jump_5
+  - first:
+      213: 2154444884965108270
+    second: AngelKid_Jump_6
+  - first:
+      213: -7227368837598315948
+    second: AngelKid_Jump_7
+  - first:
+      213: -7360548987413131031
+    second: AngelKid_Jump_8
+  - first:
+      213: 5146184573541318335
+    second: AngelKid_Jump_9
+  - first:
+      213: -8051421876925808640
+    second: AngelKid_Jump_10
+  - first:
+      213: -1614724469965062097
+    second: AngelKid_Jump_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -83,7 +101,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -95,7 +113,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -107,7 +125,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -125,7 +143,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -146,7 +164,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -167,7 +185,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -188,7 +206,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -209,7 +227,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -230,7 +248,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -242,6 +260,132 @@ TextureImporter:
       bones: []
       spriteID: e83e6017c7b031750800000000000000
       internalID: 6274371334957360014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelKid_Jump_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2aa088453026ed10800000000000000
+      internalID: 2154444884965108270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelKid_Jump_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a793e955a33bb90800000000000000
+      internalID: -7227368837598315948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelKid_Jump_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0116d91b31ad990800000000000000
+      internalID: -7360548987413131031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelKid_Jump_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe768e9a9bea6740800000000000000
+      internalID: 5146184573541318335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelKid_Jump_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0004701167a934090800000000000000
+      internalID: -8051421876925808640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelKid_Jump_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f200a9556a85799e0800000000000000
+      internalID: -1614724469965062097
       vertices: []
       indices: 
       edges: []

@@ -423,7 +423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa134aedd1704022b52588e2489e20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootTime: 0.5
   dustJumpEffect: {fileID: 4183988428632663808, guid: 857c34d05386248988f35503feeb9b3e, type: 3}
   componentsToFlip: {fileID: 58242295461998489}
   walking: Walking
@@ -457,7 +456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949512501826582534}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.267, y: 0.018, z: 0}
+  m_LocalPosition: {x: 0.267, y: -0.046, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58242295461998489}
