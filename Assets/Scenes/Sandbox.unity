@@ -1389,18 +1389,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6906231995982982501, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0311
-      objectReference: {fileID: 0}
-    - target: {fileID: 8243016752815228116, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8243016752815228116, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473176, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1448,6 +1436,10 @@ PrefabInstance:
     - target: {fileID: 8949512501238473182, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_Name
       value: Angel Kid
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949512501826582529, guid: 62022be2883e545ce815687da80f56aa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.046
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62022be2883e545ce815687da80f56aa, type: 3}

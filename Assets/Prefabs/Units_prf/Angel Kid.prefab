@@ -115,7 +115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584835858542026842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0311, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58242295461998489}
@@ -161,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: 1826059787
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 8481010811769817013, guid: 2a336e8bb0b524409a39be0add36e61a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -169,7 +169,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8949512501238473182
@@ -291,7 +291,7 @@ SpriteRenderer:
   m_SortingLayerID: 1826059787
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8481010811769817013, guid: 338b165f5e4fd4c5cbad2cd4b89ecb9c, type: 3}
+  m_Sprite: {fileID: -98144221308364082, guid: 2a336e8bb0b524409a39be0add36e61a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -411,7 +411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 1835301565440022639, guid: 552d76b085f1c47a88591422fead2a53, type: 3}
   muzzle: {fileID: 8949512501826582529}
-  fireRate: 0.25
 --- !u!114 &8949512501238473154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +432,7 @@ MonoBehaviour:
   climbing: Climbing
   climbSpeed: ClimbSpeed
   enterDoor: EnterDoor
+  shoot: Shoot
 --- !u!1 &8949512501826582534
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949512501826582534}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.267, y: -0.037, z: 0}
+  m_LocalPosition: {x: 0.267, y: 0.018, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58242295461998489}
