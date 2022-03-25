@@ -1327,6 +1327,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1358018338}
     m_Modifications:
+    - target: {fileID: 5712134028730167525, guid: b64c6b881f9e243d2a77c66bf22a1755, type: 3}
+      propertyPath: m_Size.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5712134028730167526, guid: b64c6b881f9e243d2a77c66bf22a1755, type: 3}
       propertyPath: m_Name
       value: Ladder

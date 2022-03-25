@@ -5,6 +5,8 @@ namespace AK.MovementStates
 {
     public class Climber : MonoBehaviour
     {
+        [SerializeField] float ladderTopOffset = 0.1f;
+
         bool isClimbing;
         Mover mover;
         Collider2D ladder;
@@ -35,7 +37,7 @@ namespace AK.MovementStates
 
         public void CheckIfStopClimbing(bool touchingGround, bool goingDown, float bottomPlayerCollider)
         {
-            if ((touchingGround && goingDown) || (ladder.bounds.max.y < bottomPlayerCollider))
+            if ((touchingGround && goingDown) || ((bottomPlayerCollider + ladderTopOffset) > ladder.bounds.max.y) && !goingDown)
             {
                 StopClimbing();
             }
