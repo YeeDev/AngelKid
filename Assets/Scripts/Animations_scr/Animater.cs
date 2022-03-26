@@ -3,11 +3,11 @@ using UnityEngine;
 namespace AK.Animations
 {
     [RequireComponent(typeof(Animator))]
-    [RequireComponent(typeof(SpriteRenderer))]
     public class Animater : MonoBehaviour
     {
         [SerializeField] GameObject dustJumpEffect = null;
         [SerializeField] Transform componentsToFlip = null;
+        [SerializeField] SpriteRenderer spriteRenderer = null;
 
         #region "Animation Parameters"
         [Header("Animation Parameters")]
@@ -20,16 +20,11 @@ namespace AK.Animations
         [SerializeField] string shoot = "Shoot";
         #endregion
 
-        SpriteRenderer rend;
         Animator anm;
 
-        public float GetLookingDirection { get => rend.flipX ? -1 : 1; }
+        public float GetLookingDirection { get => spriteRenderer.flipX ? -1 : 1; }
 
-        private void Awake()
-        {
-            anm = GetComponent<Animator>();
-            rend = GetComponent<SpriteRenderer>();
-        }
+        private void Awake() { anm = GetComponent<Animator>(); }
 
         public void SetWalkBool(bool isWalking) { anm.SetBool(walking, isWalking); }
         public void SetGrounded(bool isGrounded) { anm.SetBool(grounded, isGrounded); }
@@ -42,18 +37,18 @@ namespace AK.Animations
 
         public void CheckIfFlip(float flipDirection)
         {
-            if (rend.flipX && flipDirection > 0) { FlipXAxis(); }
-            if (!rend.flipX && flipDirection < 0) { FlipXAxis(); }
+            if (spriteRenderer.flipX && flipDirection > 0) { FlipXAxis(); }
+            if (!spriteRenderer.flipX && flipDirection < 0) { FlipXAxis(); }
         }
 
         private void FlipXAxis()
         {
-            rend.flipX = !rend.flipX;
+            spriteRenderer.flipX = !spriteRenderer.flipX;
 
             if (componentsToFlip == null) { return; }
 
             Vector2 flippedScale = Vector2.one;
-            flippedScale.x = rend.flipX ? -1 : 1;
+            flippedScale.x = spriteRenderer.flipX ? -1 : 1;
             componentsToFlip.localScale = flippedScale;
         }
 
