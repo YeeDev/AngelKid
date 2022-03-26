@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dustJumpEffect: {fileID: 0}
   componentsToFlip: {fileID: 0}
+  spriteRenderer: {fileID: 3659483824810764592}
   walking: Walking
   grounded: Grounded
   verticalSpeed: VerticalSpeed
