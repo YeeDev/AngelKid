@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 213d02e54e27b45cbbeaab01b20ec2af
+guid: 6da5fe2aa9d024e1c9bc8d3fc3f74d2e
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -26,6 +26,12 @@ TextureImporter:
   - first:
       213: 8414242934804138420
     second: AyeAye_Walk_7
+  - first:
+      213: -2797772092122535268
+    second: AyeAye_Walk_8
+  - first:
+      213: -3597487759543076173
+    second: AyeAye_Walk_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,7 +137,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -152,7 +158,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -173,7 +179,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -194,7 +200,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -215,7 +221,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -235,7 +241,7 @@ TextureImporter:
       name: AyeAye_Walk_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -256,7 +262,7 @@ TextureImporter:
       name: AyeAye_Walk_6
       rect:
         serializedVersion: 2
-        x: 192
+        x: 32
         y: 0
         width: 32
         height: 32
@@ -277,7 +283,7 @@ TextureImporter:
       name: AyeAye_Walk_7
       rect:
         serializedVersion: 2
-        x: 224
+        x: 64
         y: 0
         width: 32
         height: 32
@@ -290,6 +296,48 @@ TextureImporter:
       bones: []
       spriteID: 4b947de5e5565c470800000000000000
       internalID: 8414242934804138420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AyeAye_Walk_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ae88efa115c29d0800000000000000
+      internalID: -2797772092122535268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AyeAye_Walk_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba7e9861f7231ec0800000000000000
+      internalID: -3597487759543076173
       vertices: []
       indices: 
       edges: []
