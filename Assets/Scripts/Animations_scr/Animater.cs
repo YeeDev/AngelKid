@@ -38,7 +38,7 @@ namespace AK.Animations
         public void SetClimbSpeed(float climbAxis) { anm.SetFloat(climbSpeed, climbAxis); }
         public void TriggerEnterDoor() { anm.SetTrigger(enterDoor); }
         public void PlayJumpDustEffect() { InstantiateDust(); }
-        public void TriggerShoot() { anm.SetTrigger(shoot); }
+        public void SetShoot(bool isShooting) { anm.SetBool(shoot, isShooting); }
 
         public void CheckIfFlip(float flipDirection)
         {

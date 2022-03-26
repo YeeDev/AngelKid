@@ -9,6 +9,7 @@ namespace AK.Collisions
     {
         [SerializeField] string damagerTag = "Damager";
         [SerializeField] Collider2D groundCollider = null;
+        [SerializeField] Collider2D ladderCheckerCollier = null;
 
         Stats stats;
 
@@ -16,7 +17,8 @@ namespace AK.Collisions
 
         public void InitializeCollisioner(Stats stats) { this.stats = stats; }
 
-        public bool IsTouchingLayer(LayerMask layer) { return groundCollider.IsTouchingLayers(layer); }
+        public bool IsTouchingGround(LayerMask layer) { return groundCollider.IsTouchingLayers(layer); }
+        public bool IsOnLadder(LayerMask layer) { return ladderCheckerCollier.IsTouchingLayers(layer); }
 
         private void OnTriggerEnter2D(Collider2D other)
         {

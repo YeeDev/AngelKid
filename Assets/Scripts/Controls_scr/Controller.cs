@@ -97,7 +97,7 @@ namespace AK.Controls
         {
             if (Input.GetButton("Vertical"))
             {
-                climber.CheckIfStartClimb(collisioner.IsTouchingLayer(climbableMask), Input.GetAxisRaw("Vertical"), climbableMask);
+                climber.CheckIfStartClimb(collisioner.IsOnLadder(climbableMask), Input.GetAxisRaw("Vertical"), climbableMask);
             }
         }
 
@@ -111,12 +111,12 @@ namespace AK.Controls
 
         private void ReadShootInput()
         {
-            if (Input.GetButtonDown("Fire") && !climber.GetIsClimbing) { animater.TriggerShoot(); }
+            if (!climber.GetIsClimbing) { animater.SetShoot(Input.GetButton("Fire")); }
         }
 
         private void ReadEnterDoorInput()
         {
-            if (Input.GetAxisRaw("Vertical") > Mathf.Epsilon && collisioner.IsTouchingLayer(doorMask))
+            if (Input.GetAxisRaw("Vertical") > Mathf.Epsilon && collisioner.IsTouchingGround(doorMask))
             {
                 StartCoroutine(levelLoader.LoadLevel());
                 animater.TriggerEnterDoor();
@@ -127,7 +127,7 @@ namespace AK.Controls
 
         private void CheckGroundedState()
         {
-            isGrounded = collisioner.IsTouchingLayer(jumpableMask);
+            isGrounded = collisioner.IsTouchingGround(jumpableMask);
 
             cameraViewer.IsPlayerGrounded = isGrounded || climber.GetIsClimbing;
             animater.SetGrounded(isGrounded || climber.GetIsClimbing);
