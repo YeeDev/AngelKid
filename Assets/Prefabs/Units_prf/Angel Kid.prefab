@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4121db98a6d29415a80ced65e349de42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ladderTopOffset: 0.1
+  ladderTopOffset: 0.2
 --- !u!114 &8949512501238473152
 MonoBehaviour:
   m_ObjectHideFlags: 0
