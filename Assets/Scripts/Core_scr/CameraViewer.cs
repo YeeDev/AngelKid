@@ -22,7 +22,7 @@ namespace AK.Core
         private Vector3 CalculateFollowPosition()
         {
             Vector3 followPosition = transform.position;
-            followPosition.x = player.position.x;
+            followPosition.x = Mathf.Clamp(player.position.x, leftLock.position.x, rightLock.position.x);
 
             float smoothY = Mathf.SmoothDamp(transform.position.y, player.position.y + yOffset, ref refVelocity, smoothYSpeed);
             followPosition.y = IsPlayerGrounded ? smoothY : followPosition.y;
