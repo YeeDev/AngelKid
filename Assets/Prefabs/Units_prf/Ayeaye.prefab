@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 4805784036324051908}
   - component: {fileID: 4805784036324051909}
   - component: {fileID: 4805784036324051910}
+  - component: {fileID: 7383587593896806170}
   m_Layer: 0
   m_Name: Ayeaye
   m_TagString: Damager
@@ -331,3 +332,16 @@ MonoBehaviour:
   damagerTag: PlayerDamager
   groundCollider: {fileID: 0}
   ladderCheckerCollier: {fileID: 0}
+--- !u!114 &7383587593896806170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4805784036324051906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d14013131aa848e09bddd3bbfc36945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealt: 1

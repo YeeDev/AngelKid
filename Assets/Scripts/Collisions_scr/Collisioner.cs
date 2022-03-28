@@ -1,6 +1,5 @@
 using UnityEngine;
 using AK.UnitsStats;
-using AK.Animations;
 
 namespace AK.Collisions
 {
@@ -24,7 +23,7 @@ namespace AK.Collisions
         {
             if (other.CompareTag(damagerTag))
             {
-                stats.ModifyHealth(-1);
+                stats.ModifyHealth(other.GetComponent<DamagerStats>().GetDamageDealt);
             }
         }
     }
