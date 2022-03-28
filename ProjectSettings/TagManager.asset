@@ -48,6 +48,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Angel Kid
+  - name: Midground 1
+    uniqueID: 4165200709
+    locked: 0
+  - name: Terrain
+    uniqueID: 56817045
+    locked: 0
+  - name: Units
     uniqueID: 1826059787
+    locked: 0
+  - name: Midground 2
+    uniqueID: 2888891635
     locked: 0
