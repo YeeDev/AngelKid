@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 174445dafa53f4f1c8c0d657bee818dd
+guid: bb1ac924abf6c44e0ab0b5ef4cbd1027
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -32,6 +32,9 @@ TextureImporter:
   - first:
       213: 888199585243674602
     second: BasicGround_TileSet_9
+  - first:
+      213: 4078575444939434908
+    second: BasicGround_TileSet_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -338,6 +341,27 @@ TextureImporter:
       bones: []
       spriteID: ae7391021d4835c00800000000000000
       internalID: 888199585243674602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicGround_TileSet_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9bee3902c20a9830800000000000000
+      internalID: 4078575444939434908
       vertices: []
       indices: 
       edges: []

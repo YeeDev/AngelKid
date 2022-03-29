@@ -838,7 +838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3585515976820276804, guid: 6ddb97e6bc6fc40f5a5d8d5c658c9145, type: 3}
       propertyPath: m_Text
-      value: "Press up \nto climb \nladders."
+      value: "Press 'W' \nto climb \nladders."
       objectReference: {fileID: 0}
     - target: {fileID: 6626847027873625472, guid: 6ddb97e6bc6fc40f5a5d8d5c658c9145, type: 3}
       propertyPath: m_RootOrder
@@ -9872,6 +9872,12 @@ PrefabInstance:
     - target: {fileID: 530657254821718766, guid: 6ddb97e6bc6fc40f5a5d8d5c658c9145, type: 3}
       propertyPath: m_LocalScale.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585515976820276804, guid: 6ddb97e6bc6fc40f5a5d8d5c658c9145, type: 3}
+      propertyPath: m_Text
+      value: 'Press ''Space''
+
+        to jump.'
       objectReference: {fileID: 0}
     - target: {fileID: 6626847027873625472, guid: 6ddb97e6bc6fc40f5a5d8d5c658c9145, type: 3}
       propertyPath: m_RootOrder
