@@ -11,6 +11,8 @@ TagManager:
   - PlayerDamager
   - Exit
   - Enemy
+  - Gem
+  - Sign
   layers:
   - Default
   - TransparentFX

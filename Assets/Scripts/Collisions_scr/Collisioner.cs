@@ -25,6 +25,19 @@ namespace AK.Collisions
             {
                 stats.ModifyHealth(other.GetComponent<DamagerStats>().GetDamageDealt);
             }
+
+            if (transform.CompareTag("Player") && other.CompareTag("Sign"))
+            {
+                other.GetComponent<Animator>().SetBool("Reading", true);
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("Sign"))
+            {
+                other.GetComponent<Animator>().SetBool("Reading", false);
+            }
         }
     }
 }
