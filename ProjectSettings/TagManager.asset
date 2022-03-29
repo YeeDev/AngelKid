@@ -56,6 +56,9 @@ TagManager:
   - name: Terrain
     uniqueID: 56817045
     locked: 0
+  - name: Tutorial
+    uniqueID: 849418567
+    locked: 0
   - name: Units
     uniqueID: 1826059787
     locked: 0
