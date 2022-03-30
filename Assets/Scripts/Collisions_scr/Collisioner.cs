@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using AK.UnitsStats;
 
@@ -6,6 +7,8 @@ namespace AK.Collisions
     [RequireComponent(typeof(Stats))]
     public class Collisioner : MonoBehaviour
     {
+        public event Action OnGrabItem;
+
         [SerializeField] string damagerTag = "Damager";
         [SerializeField] Collider2D groundCollider = null;
         [SerializeField] Collider2D ladderCheckerCollier = null;
@@ -29,6 +32,15 @@ namespace AK.Collisions
             if (transform.CompareTag("Player") && other.CompareTag("Sign"))
             {
                 other.GetComponent<Animator>().SetBool("Reading", true);
+            }
+
+            if (transform.CompareTag("Player") && other.CompareTag("Gem"))
+            {
+                if (OnGrabItem != null)
+                {
+                    OnGrabItem();
+                    Destroy(other.gameObject);
+                }
             }
         }
 
