@@ -14,7 +14,7 @@ namespace AK.Collisions
 
         public float GetColliderMinYBound { get => groundCollider.bounds.min.y; }
 
-        public void InitializeCollisioner(Stats stats) { this.stats = stats; }
+        public void Awake() { stats = GetComponent<Stats>(); }
 
         public bool IsTouchingGround(LayerMask layer) { return groundCollider.IsTouchingLayers(layer); }
         public bool IsOnLadder(LayerMask layer) { return ladderCheckerCollier.IsTouchingLayers(layer); }
@@ -34,7 +34,7 @@ namespace AK.Collisions
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.CompareTag("Sign"))
+            if (transform.CompareTag("Player") && other.CompareTag("Sign"))
             {
                 other.GetComponent<Animator>().SetBool("Reading", false);
             }

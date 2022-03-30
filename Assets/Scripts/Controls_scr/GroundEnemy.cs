@@ -17,16 +17,12 @@ namespace AK.Controls
         Stats stats;
         Animater animater;
         Rigidbody2D rb;
-        Collisioner collisioner;
 
         private void Awake()
         {
             stats = GetComponent<Stats>();
             rb = GetComponent<Rigidbody2D>();
             animater = GetComponent<Animater>();
-            collisioner = GetComponent<Collisioner>();
-
-            collisioner.InitializeCollisioner(stats);
         }
 
         private void Update()

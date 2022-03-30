@@ -47,11 +47,7 @@ namespace AK.Controls
             levelLoader = GameObject.FindWithTag("GameController").GetComponent<LevelLoader>();
         }
 
-        private void InitializeScripts()
-        {
-            collisioner.InitializeCollisioner(stats);
-            climber.InitializeClimber(mover);
-        }
+        private void InitializeScripts() { climber.InitializeClimber(mover); }
 
         private void Update()
         {
