@@ -22,6 +22,15 @@ namespace AK.Collisions
         public bool IsTouchingGround(LayerMask layer) { return groundCollider.IsTouchingLayers(layer); }
         public bool IsOnLadder(LayerMask layer) { return ladderCheckerCollier.IsTouchingLayers(layer); }
 
+        public void GrabItem(GameObject item)
+        {
+            if (OnGrabItem != null)
+            {
+                OnGrabItem();
+                Destroy(item);
+            }
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag(damagerTag))
@@ -34,14 +43,7 @@ namespace AK.Collisions
                 other.GetComponent<Animator>().SetBool("Reading", true);
             }
 
-            if (transform.CompareTag("Player") && other.CompareTag("Gem"))
-            {
-                if (OnGrabItem != null)
-                {
-                    OnGrabItem();
-                    Destroy(other.gameObject);
-                }
-            }
+            if (transform.CompareTag("Player") && other.CompareTag("Gem")) { GrabItem(other.gameObject); }
         }
 
         private void OnTriggerExit2D(Collider2D other)

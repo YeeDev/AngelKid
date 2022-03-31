@@ -8,9 +8,15 @@ public class BigGate : MonoBehaviour
     [SerializeField] Animator[] braziers = null;
 
     int gemToFill;
+    bool canOpen;
+    Animator anm;
     Collisioner player;
 
-    private void Awake() { player = GameObject.FindWithTag("Player").GetComponent<Collisioner>(); }
+    private void Awake()
+    {
+        player = GameObject.FindWithTag("Player").GetComponent<Collisioner>();
+        anm = GetComponent<Animator>();
+    }
 
     private void OnEnable() { player.OnGrabItem += RestoreGem; }
     private void OnDisable() { player.OnGrabItem -= RestoreGem; }
@@ -20,5 +26,14 @@ public class BigGate : MonoBehaviour
         gemFrames[gemToFill].sprite = frameWithGemSprite;
         braziers[gemToFill].SetTrigger("Fire");
         gemToFill++;
+        canOpen = gemToFill == gemFrames.Length;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (canOpen && !anm.GetBool("DoorOpened") && collider.CompareTag("Player"))
+        {
+            anm.SetBool("DoorOpened", true);
+        }
     }
 }

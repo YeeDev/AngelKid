@@ -2288,7 +2288,7 @@ GameObject:
   - component: {fileID: 1126030507}
   m_Layer: 3
   m_Name: Midground 2
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3269,6 +3269,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1368783643}
     m_Modifications:
+    - target: {fileID: 1603521972, guid: 2888090938d4341df8ffd8f5d71072e9, type: 3}
+      propertyPath: braziers.Array.data[0]
+      value: 
+      objectReference: {fileID: 637330265}
+    - target: {fileID: 1603521972, guid: 2888090938d4341df8ffd8f5d71072e9, type: 3}
+      propertyPath: braziers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1456340156}
+    - target: {fileID: 1603521972, guid: 2888090938d4341df8ffd8f5d71072e9, type: 3}
+      propertyPath: braziers.Array.data[2]
+      value: 
+      objectReference: {fileID: 294084202}
+    - target: {fileID: 1603521972, guid: 2888090938d4341df8ffd8f5d71072e9, type: 3}
+      propertyPath: braziers.Array.data[3]
+      value: 
+      objectReference: {fileID: 1742469071}
+    - target: {fileID: 1603521972, guid: 2888090938d4341df8ffd8f5d71072e9, type: 3}
+      propertyPath: gemFrames.Array.data[0]
+      value: 
+      objectReference: {fileID: 1793501609}
+    - target: {fileID: 1603521972, guid: 2888090938d4341df8ffd8f5d71072e9, type: 3}
+      propertyPath: gemFrames.Array.data[1]
+      value: 
+      objectReference: {fileID: 1742468397}
+    - target: {fileID: 1603521972, guid: 2888090938d4341df8ffd8f5d71072e9, type: 3}
+      propertyPath: gemFrames.Array.data[2]
+      value: 
+      objectReference: {fileID: 1970668133}
+    - target: {fileID: 1603521972, guid: 2888090938d4341df8ffd8f5d71072e9, type: 3}
+      propertyPath: gemFrames.Array.data[3]
+      value: 
+      objectReference: {fileID: 949814863}
     - target: {fileID: 5230054523757695302, guid: 2888090938d4341df8ffd8f5d71072e9, type: 3}
       propertyPath: m_Name
       value: Big Gate
@@ -3324,34 +3356,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5230054523757695304, guid: 2888090938d4341df8ffd8f5d71072e9, type: 3}
   m_PrefabInstance: {fileID: 1603521969}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1603521971 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5230054523757695302, guid: 2888090938d4341df8ffd8f5d71072e9, type: 3}
-  m_PrefabInstance: {fileID: 1603521969}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1603521972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603521971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fbc63803295b4af5a65d6a7ea613635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemFrames:
-  - {fileID: 1793501609}
-  - {fileID: 1742468397}
-  - {fileID: 1970668133}
-  - {fileID: 949814863}
-  frameWithGemSprite: {fileID: -3075207688095837053, guid: 98777d98f815f4f72bd92d13bd84cfab, type: 3}
-  braziers:
-  - {fileID: 637330265}
-  - {fileID: 1456340156}
-  - {fileID: 294084202}
-  - {fileID: 1742469071}
 --- !u!1001 &1638347713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3783,11 +3787,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3575695674168854166, guid: 51a55a52bb4a04f25ba779d895ba63df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3575695674168854166, guid: 51a55a52bb4a04f25ba779d895ba63df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.5
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 3575695674168854166, guid: 51a55a52bb4a04f25ba779d895ba63df, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7506,7 +7510,7 @@ GameObject:
   - component: {fileID: 2093767648}
   m_Layer: 3
   m_Name: Midground 1
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

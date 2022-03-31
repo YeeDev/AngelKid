@@ -1,5 +1,6 @@
 using UnityEngine;
 using AK.Animations;
+using AK.Collisions;
 
 namespace AK.Missiles
 {
@@ -12,9 +13,11 @@ namespace AK.Missiles
         float direction;
         Animater animater;
         Rigidbody2D rb;
+        Collisioner collisioner;
 
-        public void SetDirection(float value)
+        public void InitializeArrow(Collisioner collisioner, float value)
         {
+            this.collisioner = collisioner;
             direction = Mathf.Sign(value);
             animater.CheckIfFlip(direction);
         }
@@ -30,7 +33,11 @@ namespace AK.Missiles
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Player") || collision.CompareTag("Exit") || collision.CompareTag("Climbable")) { return; }
+            if (collision.CompareTag("Gem"))
+            {
+                collisioner.GrabItem(collision.gameObject);
+                Destroy(collision.gameObject);
+            }
 
             Dissapear();
         }

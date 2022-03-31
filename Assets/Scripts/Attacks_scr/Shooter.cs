@@ -1,6 +1,7 @@
 using UnityEngine;
 using AK.Missiles;
 using AK.Animations;
+using AK.Collisions;
 
 namespace AK.Attacks
 {
@@ -10,14 +11,19 @@ namespace AK.Attacks
         [SerializeField] Transform muzzle = null;
 
         Animater animater;
+        Collisioner collisioner;
 
-        private void Awake() { animater = GetComponent<Animater>(); }
+        private void Awake()
+        {
+            animater = GetComponent<Animater>();
+            collisioner = GetComponent<Collisioner>();
+        }
 
         public void Shoot()
         {
             GameObject missileInstance = Instantiate(missilePrefab, muzzle.position, Quaternion.identity);
             Missile missile = missileInstance.GetComponent<Missile>();
-            missile.SetDirection(animater.GetLookingDirection);
+            missile.InitializeArrow(collisioner, animater.GetLookingDirection);
         }
     }
 }

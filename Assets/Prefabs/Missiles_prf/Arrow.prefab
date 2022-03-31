@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6457800246272394570}
   - component: {fileID: -5852113824066231852}
   - component: {fileID: 8513466228858153762}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arrow
   m_TagString: PlayerDamager
   m_Icon: {fileID: 0}
