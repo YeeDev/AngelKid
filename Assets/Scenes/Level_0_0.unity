@@ -9871,5 +9871,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Angel Kid
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8038870660426078997, guid: 62022be2883e545ce815687da80f56aa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 62022be2883e545ce815687da80f56aa, type: 3}
