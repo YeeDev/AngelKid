@@ -220,9 +220,10 @@ GameObject:
   - component: {fileID: 2989578221121138047}
   - component: {fileID: 2989578221121138044}
   - component: {fileID: 2989578221121138045}
+  - component: {fileID: 6154277258937208000}
   m_Layer: 0
   m_Name: Snake
-  m_TagString: Damager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -371,6 +372,8 @@ MonoBehaviour:
   climbSpeed: ClimbSpeed
   enterDoor: EnterDoor
   shoot: Shoot
+  takeDamage: TakeDamage
+  health: Health
 --- !u!114 &2989578221121138044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,3 +402,16 @@ MonoBehaviour:
   damagerTag: PlayerDamager
   groundCollider: {fileID: 0}
   ladderCheckerCollier: {fileID: 0}
+--- !u!114 &6154277258937208000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2989578221121138022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d14013131aa848e09bddd3bbfc36945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealt: 1

@@ -18,6 +18,8 @@ namespace AK.Animations
         [SerializeField] string climbSpeed = "ClimbSpeed";
         [SerializeField] string enterDoor = "EnterDoor";
         [SerializeField] string shoot = "Shoot";
+        [SerializeField] string takeDamage = "TakeDamage";
+        [SerializeField] string health = "Health";
         #endregion
 
         Animator anm;
@@ -34,6 +36,11 @@ namespace AK.Animations
         public void TriggerEnterDoor() { anm.SetTrigger(enterDoor); }
         public void PlayJumpDustEffect() { InstantiateDust(); }
         public void SetShoot(bool isShooting) { anm.SetBool(shoot, isShooting); }
+        public void TriggerTakeDamage(int currentHealth)
+        {
+            anm.SetInteger(health, currentHealth);
+            anm.SetTrigger(takeDamage);
+        }
 
         public void CheckIfFlip(float flipDirection)
         {

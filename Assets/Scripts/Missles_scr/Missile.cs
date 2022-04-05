@@ -8,7 +8,6 @@ namespace AK.Missiles
     public class Missile : MonoBehaviour
     {
         [Range(-100, 100)] [SerializeField] float missileSpeed = 18f;
-        [Range(0, 10)] [SerializeField] float timeBeforeDissapearing = 5f;
 
         float direction;
         Animater animater;
@@ -26,7 +25,6 @@ namespace AK.Missiles
         {
             rb = GetComponent<Rigidbody2D>();
             animater = GetComponent<Animater>();
-            Invoke("Dissapear", timeBeforeDissapearing);
         }
 
         private void Update() { rb.velocity = Vector2.right * direction * missileSpeed; }
@@ -43,5 +41,7 @@ namespace AK.Missiles
         }
 
         private void Dissapear() { Destroy(gameObject); }
+
+        private void OnBecameInvisible() { Dissapear(); }
     }
 }

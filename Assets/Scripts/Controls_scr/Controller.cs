@@ -18,6 +18,7 @@ namespace AK.Controls
         [SerializeField] LayerMask jumpableMask = 0;
         [SerializeField] LayerMask climbableMask = 0;
         [SerializeField] LayerMask doorMask = 0;
+        [SerializeField] ControlSettingsSO controlSettings = null;
 
         bool isGrounded;
         float xAxis;
@@ -68,19 +69,19 @@ namespace AK.Controls
 
         private void ReadWalkInput()
         {
-            xAxis = Input.GetAxisRaw("Horizontal");
+            xAxis = Input.GetAxisRaw(controlSettings.GetHorizontal);
 
-            mover.Move(xAxis, Input.GetAxisRaw("Vertical"), climber.GetIsClimbing);
+            mover.Move(xAxis, Input.GetAxisRaw(controlSettings.GetVertical), climber.GetIsClimbing);
         }
 
         private void ReadJumpInput()
         {
-            if (Input.GetButtonDown("Jump") && (isGrounded || climber.GetIsClimbing))
+            if (Input.GetButtonDown(controlSettings.GetJump) && (isGrounded || climber.GetIsClimbing))
             {
                 climber.StopClimbing();
                 mover.Jump(isGrounded);
             }
-            if (Input.GetButtonUp("Jump")) { mover.HaltJump(); }
+            if (Input.GetButtonUp(controlSettings.GetJump)) { mover.HaltJump(); }
         }
 
         private void ControlClimbState()
@@ -91,9 +92,10 @@ namespace AK.Controls
 
         private void StartClimb()
         {
-            if (Input.GetButton("Vertical"))
+            if (Input.GetButton(controlSettings.GetVertical))
             {
-                climber.CheckIfStartClimb(collisioner.IsOnLadder(climbableMask), Input.GetAxisRaw("Vertical"), climbableMask);
+                climber.CheckIfStartClimb(collisioner.IsOnLadder(climbableMask),
+                    Input.GetAxisRaw(controlSettings.GetVertical), climbableMask);
             }
         }
 
@@ -101,18 +103,19 @@ namespace AK.Controls
         {
             if (climber.GetIsClimbing)
             {
-                climber.CheckIfStopClimbing(isGrounded, Input.GetAxisRaw("Vertical") < 0, collisioner.GetColliderMinYBound);
+                climber.CheckIfStopClimbing(isGrounded,
+                    Input.GetAxisRaw(controlSettings.GetVertical) < 0, collisioner.GetColliderMinYBound);
             }
         }
 
         private void ReadShootInput()
         {
-            if (!climber.GetIsClimbing) { animater.SetShoot(Input.GetButton("Fire")); }
+            if (!climber.GetIsClimbing) { animater.SetShoot(Input.GetButton(controlSettings.GetFire)); }
         }
 
         private void ReadEnterDoorInput()
         {
-            if (Input.GetAxisRaw("Vertical") > Mathf.Epsilon && collisioner.IsTouchingGround(doorMask))
+            if (Input.GetAxisRaw(controlSettings.GetVertical) > Mathf.Epsilon && collisioner.IsTouchingGround(doorMask))
             {
                 StartCoroutine(levelLoader.LoadLevel());
                 animater.TriggerEnterDoor();

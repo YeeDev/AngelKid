@@ -342,6 +342,7 @@ MonoBehaviour:
   doorMask:
     serializedVersion: 2
     m_Bits: 256
+  controlSettings: {fileID: 11400000, guid: 46640faca974c447cb16ab91acff15d2, type: 2}
 --- !u!114 &8949512501238473179
 MonoBehaviour:
   m_ObjectHideFlags: 0

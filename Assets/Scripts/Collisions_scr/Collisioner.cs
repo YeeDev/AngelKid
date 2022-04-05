@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using AK.UnitsStats;
+using AK.Animations;
 
 namespace AK.Collisions
 {
@@ -14,10 +15,15 @@ namespace AK.Collisions
         [SerializeField] Collider2D ladderCheckerCollier = null;
 
         Stats stats;
+        Animater animater;
 
         public float GetColliderMinYBound { get => groundCollider.bounds.min.y; }
 
-        public void Awake() { stats = GetComponent<Stats>(); }
+        public void Awake()
+        {
+            stats = GetComponent<Stats>();
+            animater = GetComponent<Animater>();
+        }
 
         public bool IsTouchingGround(LayerMask layer) { return groundCollider.IsTouchingLayers(layer); }
         public bool IsOnLadder(LayerMask layer) { return ladderCheckerCollier.IsTouchingLayers(layer); }
@@ -35,7 +41,9 @@ namespace AK.Collisions
         {
             if (other.CompareTag(damagerTag))
             {
-                stats.ModifyHealth(other.GetComponent<DamagerStats>().GetDamageDealt);
+                Debug.Log(other.name);
+                stats.ModifyHealth(other.GetComponentInParent<DamagerStats>().GetDamageDealt);
+                animater.TriggerTakeDamage(stats.GetCurrentHealth);
             }
 
             if (transform.CompareTag("Player") && other.CompareTag("Sign"))

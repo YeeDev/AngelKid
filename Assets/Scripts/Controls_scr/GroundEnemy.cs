@@ -14,6 +14,7 @@ namespace AK.Controls
         [Range(0, 10)] [SerializeField] float moveSpeed = 0f;
         [SerializeField] Collider2D checkCollider = null;
 
+        bool stopMoving;
         Stats stats;
         Animater animater;
         Rigidbody2D rb;
@@ -25,16 +26,16 @@ namespace AK.Controls
             animater = GetComponent<Animater>();
         }
 
-        private void Update()
-        {
-            if (stats.IsUnitDeath) { Destroy(gameObject); }
+        private void Update() { MoveBehaviour(); }
 
-            MoveBehaviour();
-        }
+        private void DestroyEnemy() { Destroy(gameObject); }
+
+        private void StopMoving() { stopMoving = true; }
+        private void RestoreMovement() { stopMoving = false; }
 
         private void MoveBehaviour()
         {
-            if (ignoresFalls && !checkCollider.IsTouchingLayers(LayerMask.GetMask("Jumpable")))
+            if ((ignoresFalls && !checkCollider.IsTouchingLayers(LayerMask.GetMask("Jumpable"))) || stopMoving)
             {
                 rb.velocity = Vector2.zero;
                 return;
