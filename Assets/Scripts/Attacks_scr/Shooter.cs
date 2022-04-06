@@ -19,7 +19,8 @@ namespace AK.Attacks
             collisioner = GetComponent<Collisioner>();
         }
 
-        public void Shoot()
+        //Called in Animation AngelKid_Shoot
+        private void Shoot()
         {
             GameObject missileInstance = Instantiate(missilePrefab, muzzle.position, Quaternion.identity);
             Missile missile = missileInstance.GetComponent<Missile>();

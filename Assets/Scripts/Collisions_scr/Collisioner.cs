@@ -19,7 +19,9 @@ namespace AK.Collisions
         Stats stats;
         Animater animater;
 
+        //Used in Controller StopClimb()
         public float GetColliderMinYBound { get => groundCollider.bounds.min.y; }
+        //Used in Controller TakeDamage()
         public Transform GetPusher { get => pusher; }
 
         public void Awake()
@@ -28,9 +30,12 @@ namespace AK.Collisions
             animater = GetComponent<Animater>();
         }
 
+        //Used in Controller ReadEnterDoorInput() and CheckGroundedState()
         public bool IsTouchingGround(LayerMask layer) { return groundCollider.IsTouchingLayers(layer); }
+        //Used in Controller StartClimb()
         public bool IsOnLadder(LayerMask layer) { return ladderCheckerCollier.IsTouchingLayers(layer); }
 
+        //Used locally and on Missile OnTriggerEnter2D
         public void GrabItem(GameObject item)
         {
             if (OnGrabItem != null)

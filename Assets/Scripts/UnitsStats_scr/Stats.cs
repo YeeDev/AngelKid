@@ -9,9 +9,12 @@ namespace AK.UnitsStats
 
         [Range(0, 10)] [SerializeField] int health = 3;
 
+        //Used in Contronller Update()
         public bool IsUnitDeath { get => health <= 0; }
+        //Used in Collisioner OnTriggerEnter2D and HealthBarUpdater UpdateHealthBar()
         public int GetCurrentHealth { get => health; }
 
+        //Called in Collisioner OnTriggerEnter2D
         public void ModifyHealth(int amount)
         {
             health += amount;

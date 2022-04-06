@@ -12,9 +12,13 @@ namespace AK.Core
         [SerializeField] string fireInput = "Fire";
         [SerializeField] string jumpInput = "Jump";
 
+        //Set In UI
         public bool SetSettings { set => useLeftSettings = value; }
 
+        //Used in UpdateTutorial and Locally
         public bool GetSettings { get => useLeftSettings; }
+
+        //Used in Controller
         public string GetHorizontal { get => useLeftSettings ? horizontalInput + leftySuffix : horizontalInput; }
         public string GetVertical { get => useLeftSettings ? verticalInput + leftySuffix : verticalInput; }
         public string GetFire { get => useLeftSettings ? fireInput + leftySuffix : fireInput; }

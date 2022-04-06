@@ -14,6 +14,7 @@ namespace AK.Missiles
         Rigidbody2D rb;
         Collisioner collisioner;
 
+        //Called in Shooter Shoot()
         public void InitializeArrow(Collisioner collisioner, float value)
         {
             this.collisioner = collisioner;

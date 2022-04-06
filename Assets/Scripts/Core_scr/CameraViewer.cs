@@ -13,6 +13,7 @@ namespace AK.Core
         float refVelocity = 0f;
         Transform player;
 
+        //Set in Controller CheckGroundedState()
         public bool IsPlayerGrounded { get; set; }
 
         private void Awake() { player = GameObject.FindGameObjectWithTag("Player").transform; }
