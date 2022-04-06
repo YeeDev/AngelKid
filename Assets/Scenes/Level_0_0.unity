@@ -9587,22 +9587,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1493026600}
     m_Modifications:
-    - target: {fileID: 2989578219793328531, guid: 2a8a2a187d0b44c1896f9b87b7f38578, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989578220513013700, guid: 2a8a2a187d0b44c1896f9b87b7f38578, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989578221121138016, guid: 2a8a2a187d0b44c1896f9b87b7f38578, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989578221121138018, guid: 2a8a2a187d0b44c1896f9b87b7f38578, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2989578221121138019, guid: 2a8a2a187d0b44c1896f9b87b7f38578, type: 3}
       propertyPath: m_RootOrder
       value: 0
