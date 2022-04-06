@@ -9763,7 +9763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5787208472512486545, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5787208472512486559, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
       propertyPath: m_RootOrder
@@ -9905,14 +9905,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8243016752815228116, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 8481010811769817013, guid: 2a336e8bb0b524409a39be0add36e61a, type: 3}
-    - target: {fileID: 8243016752815228116, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473176, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9957,30 +9949,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8949512501238473177, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -98144221308364082, guid: 2a336e8bb0b524409a39be0add36e61a, type: 3}
-    - target: {fileID: 8949512501238473177, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949512501238473177, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949512501238473177, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949512501238473179, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: pushForce
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473182, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_Name
       value: Angel Kid
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8038870660426078997, guid: 62022be2883e545ce815687da80f56aa, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62022be2883e545ce815687da80f56aa, type: 3}

@@ -64,7 +64,7 @@ Animator:
   m_GameObject: {fileID: 1583054478435459990}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 396f3df26fd694e9b84584770764207f, type: 2}
+  m_Controller: {fileID: 22100000, guid: e90afa9a3096d42d494fda5f1b0e2390, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -126,6 +126,8 @@ MonoBehaviour:
   climbSpeed: ClimbSpeed
   enterDoor: EnterDoor
   shoot: Shoot
+  takeDamage: TakeDamage
+  health: Health
 --- !u!114 &1583054478435459985
 MonoBehaviour:
   m_ObjectHideFlags: 0

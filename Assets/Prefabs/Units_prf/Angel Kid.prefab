@@ -358,6 +358,7 @@ MonoBehaviour:
   moveSpeed: 2.5
   jumpForce: 10.5
   climbingSpeed: 1
+  pushForce: 50
 --- !u!114 &8949512501238473159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,6 +436,8 @@ MonoBehaviour:
   climbSpeed: ClimbSpeed
   enterDoor: EnterDoor
   shoot: Shoot
+  takeDamage: TakeDamage
+  health: Health
 --- !u!1 &8949512501826582534
 GameObject:
   m_ObjectHideFlags: 0
