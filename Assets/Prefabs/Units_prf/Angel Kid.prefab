@@ -333,8 +333,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 434e4262bb5c34a8988db3b187d4e9f1, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -548,7 +548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1397e001cd0714baca8fd88dc7457d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpClip: {fileID: 8300000, guid: 434e4262bb5c34a8988db3b187d4e9f1, type: 3}
+  jumpSource: {fileID: 2554721866929262857}
+  shotSource: {fileID: 0}
 --- !u!1 &8949512501826582534
 GameObject:
   m_ObjectHideFlags: 0

@@ -3792,9 +3792,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5787208472512486545, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5787208472512486558, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5787208472512486558, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
       propertyPath: m_audioClip
@@ -4011,14 +4015,6 @@ PrefabInstance:
     - target: {fileID: 3575695674168854166, guid: 51a55a52bb4a04f25ba779d895ba63df, type: 3}
       propertyPath: m_RootOrder
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3575695674168854166, guid: 51a55a52bb4a04f25ba779d895ba63df, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3575695674168854166, guid: 51a55a52bb4a04f25ba779d895ba63df, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575695674168854166, guid: 51a55a52bb4a04f25ba779d895ba63df, type: 3}
       propertyPath: m_LocalPosition.x
