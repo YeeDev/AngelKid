@@ -1,5 +1,6 @@
 using UnityEngine;
 using AK.Animations;
+using AK.Audio;
 
 namespace AK.Movements
 {
@@ -13,6 +14,7 @@ namespace AK.Movements
 
         float initialGravity;
         Animater animater;
+        SoundPlayer soundPlayer;
         Rigidbody2D rb;
 
         public float GetYRigidbodySpeed { get => rb.velocity.y; }
@@ -21,6 +23,7 @@ namespace AK.Movements
         {
             rb = GetComponent<Rigidbody2D>();
             animater = GetComponent<Animater>();
+            soundPlayer = GetComponent<SoundPlayer>();
 
             initialGravity = rb.gravityScale;
         }
@@ -47,6 +50,7 @@ namespace AK.Movements
         public void Jump(bool isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            soundPlayer.PlayJumpClip();
             if (isGrounded) { animater.PlayJumpDustEffect(); }
         }
 
