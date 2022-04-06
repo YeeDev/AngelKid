@@ -14,6 +14,7 @@ namespace AK.Collisions
         [SerializeField] Collider2D groundCollider = null;
         [SerializeField] Collider2D ladderCheckerCollier = null;
 
+        bool isInvincible;
         Transform pusher;
         Stats stats;
         Animater animater;
@@ -39,9 +40,12 @@ namespace AK.Collisions
             }
         }
 
+        private void MakeInvulnerable() { isInvincible = true; }
+        private void MakeVulnerable() { isInvincible = false; }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag(damagerTag))
+            if (other.CompareTag(damagerTag) && !isInvincible)
             {
                 pusher = other.transform;
                 stats.ModifyHealth(other.GetComponentInParent<DamagerStats>().GetDamageDealt);
