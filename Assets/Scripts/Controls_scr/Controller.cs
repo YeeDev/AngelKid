@@ -69,11 +69,7 @@ namespace AK.Controls
 
         private void Update()
         {
-            if (controlIsDisabled || stats.IsUnitDeath)
-            {
-                if (stats.IsUnitDeath) { mover.StopRigidbody(); }
-                return;
-            }
+            if (controlIsDisabled || stats.IsUnitDeath) { return; }
 
             ReadWalkInput();
             ReadJumpInput();
@@ -134,11 +130,16 @@ namespace AK.Controls
         {
             if (Input.GetAxisRaw(controlSettings.GetVertical) > Mathf.Epsilon && collisioner.IsTouchingGround(doorMask))
             {
-                StartCoroutine(levelLoader.LoadLevel());
+                LoadBehaviour();
                 animater.TriggerEnterDoor();
-                mover.StopRigidbody();
-                enabled = false;
             }
+        }
+
+        private void LoadBehaviour()
+        {
+            StartCoroutine(levelLoader.LoadLevel(stats.IsUnitDeath));
+            mover.FreezePosition();
+            enabled = false;
         }
 
         private void CheckGroundedState()

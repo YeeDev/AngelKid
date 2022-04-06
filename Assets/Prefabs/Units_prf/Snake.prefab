@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2989578219793328530}
   - component: {fileID: 2989578219793328557}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Damager Collider
   m_TagString: Damager
   m_Icon: {fileID: 0}

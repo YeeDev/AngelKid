@@ -11,13 +11,14 @@ namespace AK.Core
 
         [SerializeField] float timeToLoad = 1.5f;
 
-        public IEnumerator LoadLevel()
+        public IEnumerator LoadLevel(bool isDeath)
         {
             if (OnLevelLoad != null) { OnLevelLoad(); }
 
             yield return new WaitForSeconds(timeToLoad);
 
-            int sceneToLoad = (SceneManager.GetActiveScene().buildIndex + 1) % (SceneManager.sceneCountInBuildSettings);
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            int sceneToLoad = !isDeath ? (currentScene + 1) % SceneManager.sceneCountInBuildSettings : currentScene;
             SceneManager.LoadScene(sceneToLoad);
         }
     }

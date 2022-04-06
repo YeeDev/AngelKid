@@ -30,10 +30,8 @@ namespace AK.Movements
             rb.gravityScale = setToInital ? initialGravity : gravityScale;
         }
 
-        public void StopRigidbody(bool keepFallSpeed = false)
-        {
-            rb.velocity = keepFallSpeed ? new Vector2(0, rb.velocity.y) : Vector2.zero;
-        }
+        public void StopRigidbody() { rb.velocity = Vector2.zero; }
+        public void FreezePosition() { rb.constraints = RigidbodyConstraints2D.FreezeAll; }
 
         public void Move(float xAxis, float yAxis, bool isClimbing)
         {
