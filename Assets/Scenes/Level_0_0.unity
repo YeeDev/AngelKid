@@ -9745,10 +9745,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5787208472512486545, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5787208472512486559, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -9895,11 +9891,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473176, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 95.5
       objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473176, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473176, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_LocalPosition.z
