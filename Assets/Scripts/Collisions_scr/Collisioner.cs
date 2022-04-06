@@ -14,10 +14,12 @@ namespace AK.Collisions
         [SerializeField] Collider2D groundCollider = null;
         [SerializeField] Collider2D ladderCheckerCollier = null;
 
+        Transform pusher;
         Stats stats;
         Animater animater;
 
         public float GetColliderMinYBound { get => groundCollider.bounds.min.y; }
+        public Transform GetPusher { get => pusher; }
 
         public void Awake()
         {
@@ -41,7 +43,7 @@ namespace AK.Collisions
         {
             if (other.CompareTag(damagerTag))
             {
-                Debug.Log(other.name);
+                pusher = other.transform;
                 stats.ModifyHealth(other.GetComponentInParent<DamagerStats>().GetDamageDealt);
                 animater.TriggerTakeDamage(stats.GetCurrentHealth);
             }

@@ -13,6 +13,9 @@ namespace AK.Controls
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(Collisioner))]
     [RequireComponent(typeof(Shooter))]
+    [RequireComponent(typeof(Stats))]
+    [RequireComponent(typeof(Climber))]
+    [RequireComponent(typeof(Animater))]
     public class Controller : MonoBehaviour
     {
         [SerializeField] LayerMask jumpableMask = 0;
@@ -21,6 +24,7 @@ namespace AK.Controls
         [SerializeField] ControlSettingsSO controlSettings = null;
 
         bool isGrounded;
+        bool controlIsDisabled;
         float xAxis;
 
         Stats stats;
@@ -35,6 +39,19 @@ namespace AK.Controls
         {
             GetAndSetScripts();
             InitializeScripts();
+        }
+
+        //Called In Animation
+        private void TakeDamage()
+        {
+            mover.PushInDirection(collisioner.GetPusher.position);
+            controlIsDisabled = true;
+        }
+
+        private void EnableControl()
+        {
+            controlIsDisabled = false;
+            mover.SetGravity(true);
         }
 
         private void GetAndSetScripts()
@@ -52,9 +69,9 @@ namespace AK.Controls
 
         private void Update()
         {
-            if (stats.IsUnitDeath)
+            if (controlIsDisabled || stats.IsUnitDeath)
             {
-                mover.StopRigidbody();
+                if (stats.IsUnitDeath) { mover.StopRigidbody(); }
                 return;
             }
 

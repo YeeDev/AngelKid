@@ -9,6 +9,7 @@ namespace AK.Movements
         [SerializeField] float moveSpeed = 5f;
         [SerializeField] float jumpForce = 15f;
         [SerializeField] float climbingSpeed = 2;
+        [SerializeField] float pushForce = 10;
 
         float initialGravity;
         Animater animater;
@@ -58,6 +59,14 @@ namespace AK.Movements
             Vector2 haltSpeed = rb.velocity;
             haltSpeed.y *= 0.5f;
             rb.velocity = haltSpeed;
+        }
+
+        public void PushInDirection(Vector3 pusherPosition)
+        {
+            StopRigidbody();
+            Vector3 pushDirection = (transform.position - pusherPosition).normalized;
+            rb.AddForce(pushDirection * pushForce);
+            SetGravity(false, 0);
         }
 
         private Vector2 CalculateDirectionalSpeed(float xAxis, float yAxis, bool isClimbing)
