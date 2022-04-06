@@ -19,12 +19,7 @@ namespace AK.Controls
             stats = GetComponent<Stats>();
         }
 
-        private void Update()
-        {
-            if (stats.IsUnitDeath) { Destroy(gameObject); }
-
-            Patrol();
-        }
+        private void Update() { Patrol(); }
 
         private void Patrol()
         {
@@ -37,5 +32,7 @@ namespace AK.Controls
                 animater.CheckIfFlip(patrolPoints[currentPoint].position.x > transform.position.x ? 1 : -1);
             }
         }
+
+        private void DestroyEnemy() { Destroy(gameObject); }
     }
 }
