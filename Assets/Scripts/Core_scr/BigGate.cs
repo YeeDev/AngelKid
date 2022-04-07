@@ -31,7 +31,6 @@ public class BigGate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Hello there!");
         if (canOpen && !anm.GetBool("DoorOpened") && collider.CompareTag("Player"))
         {
             anm.SetBool("DoorOpened", true);
