@@ -776,6 +776,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSource: {fileID: 2554721866929262857}
   shotSource: {fileID: 3100804018336752622}
+  deathClipPitch: 0.5
+  deathClip: {fileID: 8300000, guid: c0d0b5c65296a4524b51808560125a46, type: 3}
 --- !u!1 &8949512501826582534
 GameObject:
   m_ObjectHideFlags: 0

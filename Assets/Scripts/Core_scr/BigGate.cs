@@ -11,11 +11,13 @@ public class BigGate : MonoBehaviour
     bool canOpen;
     Animator anm;
     Collisioner player;
+    AudioSource audioSource;
 
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Collisioner>();
         anm = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable() { player.OnGrabItem += RestoreGem; }
@@ -34,6 +36,7 @@ public class BigGate : MonoBehaviour
         if (canOpen && !anm.GetBool("DoorOpened") && collider.CompareTag("Player"))
         {
             anm.SetBool("DoorOpened", true);
+            audioSource.Play();
         }
     }
 }

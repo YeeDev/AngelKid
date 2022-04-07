@@ -12,12 +12,16 @@ namespace AK.Controls
         int currentPoint;
         Stats stats;
         Animater animater;
+        AudioSource audioSource;
 
         private void Awake()
         {
             animater = GetComponent<Animater>();
             stats = GetComponent<Stats>();
+            audioSource = GetComponent<AudioSource>();
         }
+
+        private void PlayDeathSound() { audioSource.Play(); }
 
         private void Update() { Patrol(); }
 

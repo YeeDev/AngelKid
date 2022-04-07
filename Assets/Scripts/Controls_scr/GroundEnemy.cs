@@ -17,12 +17,14 @@ namespace AK.Controls
         Stats stats;
         Animater animater;
         Rigidbody2D rb;
+        AudioSource audioSource;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             animater = GetComponent<Animater>();
             stats = GetComponent<Stats>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update() { MoveBehaviour(); }
@@ -31,6 +33,7 @@ namespace AK.Controls
         private void DestroyEnemy() { Destroy(gameObject); }
         private void StopMoving() { stopMoving = true; }
         private void RestoreMovement() { stopMoving = false; }
+        private void PlayDeathSound() { audioSource.Play(); }
 
         private void MoveBehaviour()
         {

@@ -4,6 +4,8 @@ public class SoundPlayer : MonoBehaviour
 {
     [SerializeField] AudioSource jumpSource = null;
     [SerializeField] AudioSource shotSource = null;
+    [SerializeField] float deathClipPitch = 0.3f;
+    [SerializeField] AudioClip deathClip = null; 
 
     public void PlayJumpClip()
     {
@@ -12,4 +14,11 @@ public class SoundPlayer : MonoBehaviour
     }
 
     public void PlayShootClip() { shotSource.Play(); }
+
+    public void PlayDeathClip()
+    {
+        shotSource.Stop();
+        jumpSource.pitch = deathClipPitch;
+        jumpSource.PlayOneShot(deathClip);
+    }
 }
