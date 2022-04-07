@@ -330,7 +330,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 525810456}
         m_TargetAssemblyTypeName: AK.Core.LevelLoader, Assembly-CSharp
-        m_MethodName: StartLoadingLevel
+        m_MethodName: StartLoading
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

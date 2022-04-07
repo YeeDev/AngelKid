@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 1583054478435459987}
   - component: {fileID: 1583054478435459981}
   - component: {fileID: 1583054478435459986}
-  - component: {fileID: 1583054478435459997}
   - component: {fileID: 1583054478435459984}
   - component: {fileID: 1583054478435459985}
   - component: {fileID: 3548402734557917006}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ayeaye
   m_TagString: Damager
   m_Icon: {fileID: 0}
@@ -89,21 +88,6 @@ MonoBehaviour:
   patrolPoints:
   - {fileID: 7503209786745439989}
   - {fileID: 7503209787452876684}
---- !u!114 &1583054478435459997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583054478435459990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9053a9917e8944178a76ba9440b786b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagerTag: PlayerDamager
-  groundCollider: {fileID: 0}
-  ladderCheckerCollier: {fileID: 0}
 --- !u!114 &1583054478435459984
 MonoBehaviour:
   m_ObjectHideFlags: 0

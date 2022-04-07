@@ -21,6 +21,15 @@ namespace AK.Controls
 
         private void Update() { Patrol(); }
 
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("PlayerDamager"))
+            {
+                stats.ModifyHealth(other.GetComponentInParent<DamagerStats>().GetDamageDealt);
+                animater.TriggerTakeDamage(stats.GetCurrentHealth);
+            }
+        }
+
         private void Patrol()
         {
             float delta = moveSpeed * Time.deltaTime;

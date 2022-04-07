@@ -10,5 +10,6 @@ public class SoundPlayer : MonoBehaviour
         jumpSource.pitch = Random.Range(1.05f, 1.15f);
         jumpSource.Play();
     }
+
     public void PlayShootClip() { shotSource.Play(); }
 }

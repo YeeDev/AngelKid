@@ -11,6 +11,8 @@ namespace AK.Core
 
         [SerializeField] float timeToLoad = 1.5f;
 
+        public void StartLoading() { StartCoroutine(LoadLevel(false)); }
+
         public IEnumerator LoadLevel(bool isDeath)
         {
             if (OnLevelLoad != null) { OnLevelLoad(); }

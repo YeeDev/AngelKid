@@ -6,7 +6,6 @@ using AK.Animations;
 namespace AK.Controls
 {
     [RequireComponent(typeof(Animater))]
-    [RequireComponent(typeof(Collisioner))]
     public class GroundEnemy : MonoBehaviour
     {
         [SerializeField] bool ignoresFalls = false;
@@ -21,15 +20,15 @@ namespace AK.Controls
 
         private void Awake()
         {
-            stats = GetComponent<Stats>();
             rb = GetComponent<Rigidbody2D>();
             animater = GetComponent<Animater>();
+            stats = GetComponent<Stats>();
         }
 
         private void Update() { MoveBehaviour(); }
 
+        //Called in Animations
         private void DestroyEnemy() { Destroy(gameObject); }
-
         private void StopMoving() { stopMoving = true; }
         private void RestoreMovement() { stopMoving = false; }
 
@@ -45,11 +44,17 @@ namespace AK.Controls
             animater.CheckIfFlip(rb.velocity.x);
         }
 
-        private void OnTriggerExit2D(Collider2D collision)
+        private void OnTriggerExit2D(Collider2D other)
         {
-            if (collision.CompareTag("Ground") && !ignoresFalls)
+            if (other.CompareTag("Ground") && !ignoresFalls)
             {
                 FlipMovingDirection();
+            }
+
+            if (other.CompareTag("PlayerDamager"))
+            {
+                stats.ModifyHealth(other.GetComponentInParent<DamagerStats>().GetDamageDealt);
+                animater.TriggerTakeDamage(stats.GetCurrentHealth);
             }
         }
 

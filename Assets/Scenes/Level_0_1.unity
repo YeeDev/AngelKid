@@ -3794,11 +3794,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5787208472512486545, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5787208472512486558, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
       propertyPath: m_Volume
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787208472512486558, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5787208472512486558, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
       propertyPath: m_audioClip
@@ -9438,14 +9442,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8243016752815228116, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8243016752815228116, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473176, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9489,10 +9485,6 @@ PrefabInstance:
     - target: {fileID: 8949512501238473176, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949512501238473177, guid: 62022be2883e545ce815687da80f56aa, type: 3}
-      propertyPath: m_Color.a
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949512501238473182, guid: 62022be2883e545ce815687da80f56aa, type: 3}
       propertyPath: m_Name

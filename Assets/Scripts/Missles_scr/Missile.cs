@@ -8,6 +8,8 @@ namespace AK.Missiles
     public class Missile : MonoBehaviour
     {
         [Range(-100, 100)] [SerializeField] float missileSpeed = 18f;
+        [SerializeField] GameObject shootEffect = null;
+        [SerializeField] Transform spawnPoint = null;
 
         float direction;
         Animater animater;
@@ -30,14 +32,15 @@ namespace AK.Missiles
 
         private void Update() { rb.velocity = Vector2.right * direction * missileSpeed; }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collision.CompareTag("Gem"))
+            if (collider.transform.CompareTag("Gem"))
             {
-                collisioner.GrabItem(collision.gameObject);
-                Destroy(collision.gameObject);
+                collisioner.GrabItem(collider.gameObject);
+                Destroy(collider.gameObject);
             }
 
+            Instantiate(shootEffect, spawnPoint.position, Quaternion.identity);
             Dissapear();
         }
 
