@@ -10,6 +10,10 @@ namespace AK.Core
         public event Action OnLevelLoad;
 
         [SerializeField] float timeToLoad = 1.5f;
+        [SerializeField] bool loadsAutomatically = false;
+        [SerializeField] float timeBeforeAutomaticLoad = 8f;
+
+        private void Awake() { if (loadsAutomatically) { Invoke("StartLoading", timeBeforeAutomaticLoad); } }
 
         public void StartLoading() { StartCoroutine(LoadLevel(false)); }
 
