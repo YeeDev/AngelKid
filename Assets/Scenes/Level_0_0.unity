@@ -9769,6 +9769,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3306428201504480665, guid: 02f23ca818ec64250935a4c289af65f2, type: 3}
+      propertyPath: heartSize
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3306428201504480671, guid: 02f23ca818ec64250935a4c289af65f2, type: 3}
       propertyPath: m_Name
       value: Hearts Bar
@@ -9788,11 +9792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5787208472512486545, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5787208472512486558, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
       propertyPath: m_Volume
-      value: 0.05
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5787208472512486559, guid: b9d968b44e4df4986a0f157be5a39b5e, type: 3}
       propertyPath: m_RootOrder

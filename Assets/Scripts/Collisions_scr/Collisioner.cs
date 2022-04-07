@@ -12,7 +12,6 @@ namespace AK.Collisions
 
         public event Action OnGrabItem;
 
-        [SerializeField] string damagerTag = "Damager";
         [SerializeField] Collider2D groundCollider = null;
         [SerializeField] Collider2D ladderCheckerCollier = null;
         [SerializeField] Transform itemSoundTransform = null;
