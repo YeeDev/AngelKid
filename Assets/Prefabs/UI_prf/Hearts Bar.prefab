@@ -200,6 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414a9578e87fc4f169d8b74bd73d5164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartSize: 9
+  heartSize: 10
   heartBarFilled: {fileID: 3306428200016470834}
   heartBarBlank: {fileID: 3306428200461113029}
