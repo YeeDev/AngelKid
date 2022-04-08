@@ -8842,7 +8842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3832113085064766458, guid: 6ddb97e6bc6fc40f5a5d8d5c658c9145, type: 3}
       propertyPath: leftControlText
-      value: 'Press ''Q'' to
+      value: 'Press ''Z'' to
 
         shoot'
       objectReference: {fileID: 0}
